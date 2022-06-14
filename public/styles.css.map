@@ -1,0 +1,23 @@
+{
+    "version": 3,
+    "mappings": "AEAA,OAAO,CAAC,2LAAI;ACAZ,OAAO,CAAC,2LAAI;AQAZ,AAAA,IAAI,CAAA;EACF,WAAW,EAAE,iCAAiC;CAC/C",
+    "sources": [
+        "styles.scss",
+        "styles/variables/_colors.scss",
+        "styles/core/_fonts.scss",
+        "styles/variables/_typography.scss",
+        "styles/abstracts/_mixins.scss",
+        "styles/components/_buttons.scss",
+        "styles/components/_forms.scss",
+        "styles/layout/_footer.scss",
+        "styles/layout/_grids.scss",
+        "styles/layout/_header.scss",
+        "styles/layout/_navigation.scss",
+        "styles/pages/_home.scss",
+        "styles/pages/_loggedin.scss",
+        "styles/pages/_taskboard.scss",
+        "styles/sections/_timer.scss"
+    ],
+    "names": [],
+    "file": "styles.css"
+}

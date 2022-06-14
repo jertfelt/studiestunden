@@ -1,0 +1,24 @@
+//Variables
+@import "./styles/variables/colors";
+@import "./styles/core/fonts";
+@import "./styles/variables/typography";
+
+
+//Abstracts
+@import "./styles/abstracts/mixins";
+
+//Components
+@import "./styles/components/buttons";
+@import "./styles/components/forms";
+
+//Layout
+@import "./styles/layout/footer";
+@import "./styles/layout/grids";
+@import "./styles/layout/header";
+@import "./styles/layout/navigation";
+
+//Pages & Sections
+@import "./styles/pages/home";
+@import "./styles/pages/loggedin";
+@import "./styles/pages/taskboard";
+@import "./styles/sections/timer";
