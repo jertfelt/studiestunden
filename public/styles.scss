@@ -1,13 +1,14 @@
+//Abstracts
+@import "./styles/abstracts/mixins";
+@import "./styles/core/reset";
+
 //Variables
 @import "./styles/variables/colors";
 @import "./styles/core/fonts";
 @import "./styles/variables/typography";
 
-//Abstracts
-@import "./styles/abstracts/mixins";
-@import "./styles/core/reset";
-
 //Components
+@import "./styles/components/toggles";
 @import "./styles/components/buttons";
 @import "./styles/components/forms";
 

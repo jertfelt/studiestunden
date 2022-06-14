@@ -1,0 +1,31 @@
+.hidden{
+  visibility: hidden;
+  display:none;
+}
+.visible{
+  visibility: visible;
+  display:block;
+}
+
+.navMobile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdownmenu{
+  align-items: center;
+  margin-top:-3rem;
+  ul{
+    align-items: center;
+  }
+  &--close{
+    display:flex;
+    align-items: right;
+    cursor: pointer;
+    p{
+     font-weight:300;
+    }
+  }
+}

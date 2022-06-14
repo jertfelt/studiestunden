@@ -5,6 +5,9 @@
     font-family: $heading;
     font-size: 59px;
     line-height: 0.3rem;
+    @include breakpoint(xxsmall-max){
+      font-size:29px;
+    }
   }
 }
 
@@ -13,6 +16,9 @@
   &__h1{
     font-family: $second-heading;
     line-height: 0;
+    @include breakpoint(xxsmall-max){
+      line-height: 1.2rem;
+    }
   }
 }
 

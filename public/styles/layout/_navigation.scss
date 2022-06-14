@@ -1,10 +1,11 @@
 nav {
+  width:100%;
   display:flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding-right:1rem;
-  font-family: $second-heading;
+  font-family: $primary-font;
   a {
     font-weight: bold;
     text-decoration: none;
@@ -16,5 +17,55 @@ nav {
   }
   a:hover{
     color:$orange;
+  }
+  @include breakpoint(xsmall-max){
+  @include breakpoint(small-max-m){
+    display:flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    ul{
+      margin-bottom:-1rem;
+    }
+    p{
+      text-align: center;
+    }
+  }
+}
+  @include breakpoint(xxsmall-max){
+    display:flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+}
+
+.siteNav{
+  padding:1rem;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  li {
+    padding:1rem;
+  }
+  @include breakpoint(small-max-m){
+  padding:0;
+  display:none;
+  }
+}
+
+.siteNavMobile{
+  @include breakpoint(small-max){
+    display:none;
+  }
+  padding:0;
+  width:100%;
+  text-align: center;
+}
+#dropdownToggle{
+  cursor: pointer;
+  p{
+    font-weight: bold;
   }
 }
