@@ -1,6 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Righteous&family=Roboto+Mono:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap');
+.heading{
+  font-family: $heading;
+  letter-spacing: 0.1rem;
+  &__h1{
+    font-family: $heading;
+    font-size: 59px;
+    line-height: 0.3rem;
+  }
+}
 
-//fonts:
-$primary-heading: "Righteous", Arial, sans-serif;
-$secondary-heading: "Kdam Thmor Pro", Arial, sans-serif;
-$primary-font: "Roboto Mono", monospace;
+.subheading{
+  font-family: $second-heading;
+  &__h1{
+    font-family: $second-heading;
+    line-height: 0;
+  }
+}
+

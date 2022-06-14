@@ -3,9 +3,9 @@
 @import "./styles/core/fonts";
 @import "./styles/variables/typography";
 
-
 //Abstracts
 @import "./styles/abstracts/mixins";
+@import "./styles/core/reset";
 
 //Components
 @import "./styles/components/buttons";
