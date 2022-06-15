@@ -1,8 +1,8 @@
 .txtbuttonHover{
   cursor: pointer;
     padding:0.2rem;
-  &:hover{
-      background-color: $color-black;
-      color:$color-white;
-  }
+}
+.txtbuttonHover:hover{
+  background-color: $color-black;
+  color:$color-white;
 }

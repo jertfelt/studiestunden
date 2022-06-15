@@ -51,6 +51,73 @@
   color: #fff;
 }
 
+footer {
+  padding: 2rem;
+  background-color: #fff;
+}
+
+footer li {
+  list-style-type: none;
+}
+
+footer a {
+  text-decoration: none;
+  line-height: 0;
+}
+
+footer a:hover {
+  color: orange;
+}
+
+footer h2 {
+  font-family: "Righteous", Arial, sans-serif;
+  color: #5050e8;
+  line-height: 0.3rem;
+}
+
+footer h3 {
+  font-family: "Kdam Thmor Pro", Arial, sans-serif;
+}
+
+.footer__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  line-height: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.footer__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  line-height: 1rem;
+  padding-right: 4rem;
+  padding-left: 4rem;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
 header {
   margin: 0;
   padding: 1rem;
@@ -210,8 +277,12 @@ nav a:hover {
 
 body {
   font-family: "Roboto Mono", monospace;
-  background-color: #242424;
+  background-color: #e1dfd6;
   margin: 0;
-  color: #fff;
+  color: #242424;
+}
+
+.homepage {
+  padding: 1rem;
 }
 /*# sourceMappingURL=styles.css.map */

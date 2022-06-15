@@ -1,0 +1,49 @@
+footer{
+  padding:2rem;
+  background-color: $color-white;
+  
+
+  li {
+    list-style-type: none;
+  }
+
+  a{
+    text-decoration: none;
+    line-height:0;
+  }
+  a:hover{
+    color:$orange;
+  }
+
+  h2{
+    font-family: $heading;
+    color:$blue;
+    line-height:0.3rem;
+  }
+
+  h3{
+    font-family: $second-heading;
+    
+  }
+}
+
+.footer{
+  &__logo{
+    display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  line-height:0.4rem;
+  margin-bottom:1rem;
+  }
+  &__content{
+  display:flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  line-height:1rem;
+  padding-right: 4rem;
+  padding-left:4rem;
+  text-align: center;
+  padding-bottom:2rem;
+}}
