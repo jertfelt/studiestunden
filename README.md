@@ -18,6 +18,14 @@ För den som är inloggad, utöver timer och slide:
 4. Logga ut och ändra sina uppgifter
 5. Eventuellt synka med sin google kalender /ha en kalender på hemsidan för zoom/meet-möten
 
+Jag jobbar här med:
+NODE.JS
+Express & EJS
+Sass
+Javascript
+Eventuellt Typescript
+
+Beroende på så kommer jag att använda Heroku eller Google som deployment
 
 ![image](https://user-images.githubusercontent.com/30622818/173903343-e1c63b1e-7127-41b0-bf00-fed97dc05f4e.png)
 ![image](https://user-images.githubusercontent.com/30622818/173903490-d70e86ca-3c9b-4168-add0-e34d70a6d1ba.png)
