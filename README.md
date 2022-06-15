@@ -16,6 +16,7 @@ För den som är inloggad, utöver timer och slide:
 2b) Eventuellt kan man välja projekt-typ på sin anslagstavla, alltså att man lajvar tex Kanban
 3. Se andra menyval än den som inte är inloggad
 4. Logga ut och ändra sina uppgifter
+5. Eventuellt synka med sin google kalender /ha en kalender på hemsidan för zoom/meet-möten
 
 
 ![image](https://user-images.githubusercontent.com/30622818/173903343-e1c63b1e-7127-41b0-bf00-fed97dc05f4e.png)
