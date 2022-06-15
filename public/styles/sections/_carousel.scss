@@ -1,6 +1,45 @@
-.glide{
-  background-color: red;
-}
 .quotes{
-  background-color: red;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin:0;
+  background-color: $color-black;
+  min-height: 300px;
+  padding:2rem;
+  color: $color-white;
+  &__introtxt{
+    p {
+      width:50%;
+    }
+    a{
+      color:$orange;
+    }
+    h2 {
+      font-family: $heading;
+      font-size:32px;
+    }
+    padding-bottom:2rem;
+  }
+ 
+}
+
+.mySlides{
+  display:none;
+  &__padding{
+    padding-bottom:1rem;
+  }
+  &__buttons{
+    padding-bottom:3rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  img{
+    max-height:400px;
+    border-radius: 30px;
+  }
+  &__quotelong{
+    width:50%;
+    padding:5rem;
+  }
 }

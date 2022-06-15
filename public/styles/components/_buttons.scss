@@ -6,3 +6,29 @@
   background-color: $color-black;
   color:$color-white;
 }
+.carouselbutton{
+  &--control{
+    font-size:18px;
+    background-color: $color-black;
+    color:$color-white;
+    border:none;
+    font-weight:bold;
+    cursor: pointer;
+  }
+  &--control:hover{
+    color:$orange;
+  }
+  &--control:active {
+    color: $blue;}
+
+  &--number{
+    background-color: $color-black;
+    color:$color-white;
+    border:none;
+    font-weight:bold;
+    cursor: pointer;
+  }
+  &--number:active{
+    color:$orange;
+  }
+}

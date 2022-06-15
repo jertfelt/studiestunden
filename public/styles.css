@@ -95,6 +95,35 @@
   color: #fff;
 }
 
+.carouselbutton--control {
+  font-size: 18px;
+  background-color: #242424;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.carouselbutton--control:hover {
+  color: orange;
+}
+
+.carouselbutton--control:active {
+  color: #5050e8;
+}
+
+.carouselbutton--number {
+  background-color: #242424;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.carouselbutton--number:active {
+  color: orange;
+}
+
 footer {
   padding: 2rem;
   background-color: #fff;
@@ -554,11 +583,70 @@ button:focus, button:active {
   outline: none;
 }
 
-.glide {
-  background-color: red;
+.quotes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  background-color: #242424;
+  min-height: 300px;
+  padding: 2rem;
+  color: #fff;
 }
 
-.quotes {
-  background-color: red;
+.quotes__introtxt {
+  padding-bottom: 2rem;
+}
+
+.quotes__introtxt p {
+  width: 50%;
+}
+
+.quotes__introtxt a {
+  color: orange;
+}
+
+.quotes__introtxt h2 {
+  font-family: "Righteous", Arial, sans-serif;
+  font-size: 32px;
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides__padding {
+  padding-bottom: 1rem;
+}
+
+.mySlides__buttons {
+  padding-bottom: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mySlides img {
+  max-height: 400px;
+  border-radius: 30px;
+}
+
+.mySlides__quotelong {
+  width: 50%;
+  padding: 5rem;
 }
 /*# sourceMappingURL=styles.css.map */
