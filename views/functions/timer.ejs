@@ -28,7 +28,8 @@
     <span class="separator">:</span>
     <span id="js-seconds">00</span>
   </div>
-  <button class="main-button" data-action="start" id="js-btn">
+  <button class="main-button " data-action="start" 
+  id="js-btn">
     Start
   </button>
 </div>
@@ -82,7 +83,11 @@ function startTimer() {
 
   mainButton.dataset.action = 'stop';
   mainButton.textContent = 'stopp';
+ 
   mainButton.classList.add('active');
+  document.getElementById('js-seconds').classList.add("bluetoggle");
+  document.getElementById('js-minutes').classList.add("bluetoggle");
+  document.querySelector(".separator").classList.add("bluetoggle");
 
   interval = setInterval(function() {
     timer.remainingTime = getRemainingTime(endTime);
@@ -115,6 +120,10 @@ function stopTimer() {
   mainButton.dataset.action = 'start';
   mainButton.textContent = 'start';
   mainButton.classList.remove('active');
+
+  document.getElementById('js-seconds').classList.remove("bluetoggle");
+  document.getElementById('js-minutes').classList.remove("bluetoggle");
+  document.querySelector(".separator").classList.remove("bluetoggle");
 }
 
 function updateClock() {
@@ -126,7 +135,6 @@ function updateClock() {
   const sec = document.getElementById('js-seconds');
   min.textContent = minutes;
   sec.textContent = seconds;
-
   const text =
     timer.mode === 'pomodoro' ? 'A R B E T A!' : 'Ta en paus!';
   document.title = `${minutes}:${seconds} — ${text}`;
