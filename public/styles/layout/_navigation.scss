@@ -18,26 +18,11 @@ nav {
   a:hover{
     color:$orange;
   }
-  @include breakpoint(xsmall-max){
-  @include breakpoint(small-max-m){
-    display:flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-    ul{
-      margin-bottom:-1rem;
-    }
-    p{
-      text-align: center;
-    }
-  }
-}
   @include breakpoint(xxsmall-max){
     display:flex;
     flex-direction: column;
     max-width: 100%;
   }
-
 }
 
 .siteNav{
@@ -47,7 +32,9 @@ nav {
   align-items: center;
   justify-content: space-between;
   li {
-    padding:1rem;
+    padding:0.8rem;
+    text-align: center;
+    
   }
   @include breakpoint(small-max-m){
   padding:0;
@@ -63,9 +50,38 @@ nav {
   width:100%;
   text-align: center;
 }
-#dropdownToggle{
-  cursor: pointer;
-  p{
-    font-weight: bold;
+
+.navMobile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height:20px;
+}
+
+.dropdownmenu{
+  height: 80px;
+  z-index: 90;
+  background-color: $color-white;
+  width:100%;
+  padding:2rem;
+  margin-top:3rem;
+  &--options{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: $color-white;
+    width:100%;
+    margin-top:2rem;
   }
+  &--close{
+    margin-top:-2rem;
+    margin-right:12rem;
+    z-index:99;
+  }
+}
+
+#openDropdownNav{
+  margin-top:-1rem;
 }

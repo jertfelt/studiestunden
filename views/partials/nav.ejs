@@ -5,19 +5,16 @@
     <p class="subheading__h1">En sida som hjälper dig att plugga programmering.</p>
   </div>
   <div class="siteNavMobile">
-    <span 
-    id="dropdownToggle"
+    <span class="dropdownmenu--options"
     >
-    <p>Meny</p>
+    <p class="txtbuttonHover"
+    id="openDropdownNav">Meny</p>
+    <p id="closeDropdownNav"
+    class="hidden txtbuttonHover
+    dropdownmenu--close">X</p>
     </span>
-    <div class="navMobile"
+    <div class="navMobile hidden"
     id="dropdownMenu">
-    <span 
-    class="dropdownmenu--close"
-    id="closeDropdownMenu">
-      <p>X</p>
-    </span>
-    
     <ul 
     class="dropdownmenu">
     <li><a 
@@ -30,9 +27,12 @@
     <li class="notloggedin ">
       <a href="/registrera">
       Registrera</a></li>
-    <li class="loggedin logoutbutton"><a href="/">
+    <li class="loggedin logoutbutton hidden"><a href="/">
       Logga ut</a>
     </li>
+    <li class="loggedin logoutbutton hidden">
+      <a href="/profil">
+      Min sida</a></li>
   </div>
   </ul>
   </div>
@@ -40,7 +40,8 @@
   </ul>
   </div>
   <ul 
-  class="siteNav">
+  class="siteNav"
+  id="desktopNav">
     <li><a 
       href="/">
       Start</a></li>
@@ -50,8 +51,58 @@
     <li class="notloggedin ">
       <a href="/registrera">
       Registrera</a></li>
-    <li class="loggedin logoutbutton">
+    <li class="loggedin logoutbutton hidden">
       <a href="/">
       Logga ut</a></li>
+    <li class="loggedin logoutbutton hidden">
+        <a href="/profil">
+        Min sida</a></li>
   </ul>
 </nav>
+
+<script>
+  
+//navigation mobile
+let navVisibleWhenMobile = document.getElementById("siteNavMobile")
+let openNavMobile = document.getElementById("openDropdownNav");
+let closeNavMobile = document.getElementById("closeDropdownNav");
+let navMobileMenu = document.getElementById("dropdownMenu");
+
+//*-----------functions
+openNavMobile.addEventListener("click", () => {
+  if(navMobileMenu.classList.contains("hidden")){
+    navMobileMenu.classList.remove("hidden");
+    closeNavMobile.classList.remove("hidden");
+    openNavMobile.classList.add("hidden");
+  }
+})
+
+closeNavMobile.addEventListener("click", () => {
+  navMobileMenu.classList.add("hidden");
+  closeNavMobile.classList.add("hidden");
+  openNavMobile.classList.remove("hidden");
+})
+
+//*logged in 
+let notLoggedInOptions = document.querySelectorAll(".notloggedin");
+let loggedInOptions = document.querySelectorAll(".loggedin");
+
+//logout function button
+let logoutButtons = document.querySelectorAll(".logoutbutton");
+logoutButtons.forEach(element => {
+  element.addEventListener("click", () => {
+    console.log("clicked")
+  })
+});
+
+
+loggedInOptions.forEach(element => {
+  if(element.classList.contains("hidden")){
+    console.log(element + " =hidden")
+  }
+  else {
+    console.log(element + " = not hidden")
+  }
+})
+
+</script>

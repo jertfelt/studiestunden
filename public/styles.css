@@ -41,47 +41,14 @@
   display: block;
 }
 
-.navMobile {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.dropdownmenu {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: -3rem;
-}
-
-.dropdownmenu ul {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.dropdownmenu--close {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: right;
-      -ms-flex-align: right;
-          align-items: right;
+.txtbuttonHover {
   cursor: pointer;
+  padding: 0.2rem;
 }
 
-.dropdownmenu--close p {
-  font-weight: 300;
+.txtbuttonHover:hover {
+  background-color: #242424;
+  color: #fff;
 }
 
 header {
@@ -132,30 +99,6 @@ nav a:hover {
   color: orange;
 }
 
-@media only screen and (min-width: 600px) and (max-width: 768px) {
-  nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  nav ul {
-    margin-bottom: -1rem;
-  }
-  nav p {
-    text-align: center;
-  }
-}
-
 @media only screen and (max-width: 600px) {
   nav {
     display: -webkit-box;
@@ -187,7 +130,8 @@ nav a:hover {
 }
 
 .siteNav li {
-  padding: 1rem;
+  padding: 0.8rem;
+  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {
@@ -209,12 +153,59 @@ nav a:hover {
   }
 }
 
-#dropdownToggle {
-  cursor: pointer;
+.navMobile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 20px;
 }
 
-#dropdownToggle p {
-  font-weight: bold;
+.dropdownmenu {
+  height: 80px;
+  z-index: 90;
+  background-color: #fff;
+  width: 100%;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+.dropdownmenu--options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background-color: #fff;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.dropdownmenu--close {
+  margin-top: -2rem;
+  margin-right: 12rem;
+  z-index: 99;
+}
+
+#openDropdownNav {
+  margin-top: -1rem;
 }
 
 body {
