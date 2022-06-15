@@ -1,4 +1,4 @@
-# Studiestunden
+# StudieStunden
 en hemsida till för att plugga programmering fokuserat
 
 Eget projekt.
