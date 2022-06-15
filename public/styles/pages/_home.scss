@@ -4,7 +4,47 @@ body{
   margin: 0;
   color: $color-black;
 }
-
 .homepage{
-  padding:1rem;
+  padding:2rem;
+  display:flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  @include breakpoint(xsmall-max){
+    margin-left: 0%;
+    max-width:100%;
+    flex-basis: 50%;
+    margin-bottom: 0;
+    min-width: 50%;
+  }
+  @include breakpoint(mediumsize){
+    margin-left: 12.5%;
+    max-width:75%;
+  }
+  h2{
+    padding:0.3rem;
+    background-color: $color-black;
+    color: $color-white;
+    margin-bottom:0;
+    z-index:30;
+    padding-left:1rem;
+  }
+  a{
+    padding:1rem;
+    color:$blue;
+    text-decoration: none;
+  }
+  a:hover{
+    color:$color-white;
+    background-color: $blue;
+  }
+
+  img{
+    width:100%;
+    margin-top:0;
+    z-index:20;
+  }
+  p{
+    width:75%;
+  }
 }

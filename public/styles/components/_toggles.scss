@@ -6,3 +6,18 @@
   visibility: visible;
   display:block;
 }
+
+.row{
+  display:flex;
+  flex-direction: row;
+  &__spacebetween{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.column{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

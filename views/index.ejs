@@ -7,13 +7,55 @@
   </header>
 
 <main class="homepage">
-  <div class="homepage__about">
-  
+ 
+  <section>
+  <h2>Det här är en hemsida för dig som pluggar</h2>
+  <img src="https://assets.entrepreneur.com/content/3x2/2000/20150708172005-coding-working-workspace-apple-macintosh.jpeg" 
+  class="img">
+  <p>Med en timer, att-göra-lista, och anslagstavla för dina olika projekt!</p>
+  <p>Visste du att genom att ta planerade och strukturerade pauser i ditt arbete blir du i längden mer effektiv och mår bättre?</p>
+  <p>Den här hemsidan är till för dig som har en rörig hjärna och behöver hjälp med strukturen. För dig som gillar att skriva och checka av att-göra-listor, få översikt, projektleda eller bara tycker att Skalmans matochsovklocka är fenomenal.</p>
+  <p>Sidan är utvecklad för programmerings-studenter, men kan användas av alla studenter som sitter vid datorn och som har behov av struktur och tidkontroll.</p>
+  </section>
+  <section class="timerDiv">
+    <h2>Pomodoro-metoden:</h2>
+   
+    <%- include ("./functions/timer.ejs") %>
+    <div class="timer__infotxt">
+    <p>Pomodoro-metoden fungerar på följande vis: du jobbar fokuserat i 25 minuter. Sedan tar du en kort paus på 5 minuter. Detta sker fyra gånger, sedan tar du en längre paus på 15 minuter.</p>
+    <h3>Såhär lyckas du med metoden:</h3>
+    <ol>
+      <li> 
+        Välj uppgifter som är lätta att dyka ned i och jobba isolerat med. Det kan vara att läsa igenom en rapport eller skriva på ett enskilt dokument.
+    </li>
+    <li>Hoppa inte över pausen! Den fyller en funktion och gör att du orkar längre, även om det för stunden känns som att du är i ett flow.
+     </li>
+     <li>
+      Fokusera! Eliminera störningar och jobba proaktivt med att hitta ett arbetssätt som du trivs med.
+     </li>
+    </ol>
   </div>
+  </section>
+  <section class="becomemember notloggedin">
+    <h2>Tveka inte</h2>
+    <span class="row row__spacebetween">
+      <h3>
+        <a href="/registrera">
+        Registrera dig här & nu</a>
+      </h3>
+      <h3>Redan medlem?
+        <a href="/login">Logga in här</a></h3>
+    </span>
+    <p>Om du blir medlem idag så har du access till alla funktioner. Medlemskapet är gratis i dagsläget, och innebär att du kan obegränsat studera. Bra va?</p>
+
+  </section>
+
 </main>
-<aside class="homepage__timer">
-  <%- include ("./functions/timer.ejs") %>
+
+<aside class="quotes">
+  <%- include ("./functions/quotes.ejs") %>
 </aside>
+
   <%- include("./partials/footer.ejs") %>
 </body>
 </html>
