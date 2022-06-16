@@ -431,6 +431,13 @@ body {
   }
 }
 
+@media only screen and (min-width: 1290px) {
+  .homepage {
+    margin-left: 25%;
+    max-width: 50%;
+  }
+}
+
 .homepage h2 {
   padding: 0.3rem;
   background-color: #242424;
@@ -477,6 +484,25 @@ body {
 
 .timer__infotxt li {
   width: 75%;
+}
+
+@media only screen and (min-width: 1290px) {
+  .timer__infotxt {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .timer__infotxt li {
+    width: 75%;
+    margin-left: 12%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -547,6 +573,18 @@ body {
   .clock {
     margin: 0;
     font-size: 3rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media only screen and (min-width: 1290px) {
+  .clock {
+    margin: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

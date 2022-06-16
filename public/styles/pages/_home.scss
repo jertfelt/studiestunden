@@ -21,6 +21,11 @@ body{
     margin-left: 12.5%;
     max-width:75%;
   }
+
+  @include breakpoint(large-min){
+    margin-left: 25%;
+    max-width:50%;
+  }
   h2{
     padding:0.3rem;
     background-color: $color-black;
@@ -43,6 +48,7 @@ body{
     width:100%;
     margin-top:0;
     z-index:20;
+   
   }
   p{
     width:75%;

@@ -13,6 +13,16 @@
         li {
           width:75%;
         }
+        @include breakpoint(large-min){
+      
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          li {
+            width:75%;
+            margin-left:12%;
+          }
+        }
       }
       @include breakpoint(small-max-m){
         padding:2rem;
@@ -30,6 +40,7 @@
         flex-direction: column;
         align-items: center;
       }
+  
   }
   
   .clock {
@@ -50,6 +61,12 @@
     @include breakpoint(xxsmall-max){
       margin:0;
       font-size:3rem;
+      display: flex;
+      align-items: center;
+    }
+    @include breakpoint(large-min){
+      margin:0;
+    
       display: flex;
       align-items: center;
     }
@@ -108,36 +125,3 @@
 
 
 
-
-
-// .timer {
-//   font-family: $primary-font;
-//   display: inline-block;
-//   padding: 24px 32px;
-//   border-radius: 30px;
-//   background: $color-white;
-// }
-
-// .timer__part {
-//   font-size: 36px;
-//   font-weight: bold;
-// }
-
-// .timer__btn {
-//   width: 50px;
-//   height: 50px;
-//   margin-left: 16px;
-//   border-radius: 50%;
-//   border: none;
-//   color: $color-grey;
-//   background: $color-black;
-//   cursor: pointer;
-// }
-
-// .timer__btn--start {
-//   background: $blue;
-// }
-
-// .timer__btn--stop {
-//   background: #ff0256;
-// }
