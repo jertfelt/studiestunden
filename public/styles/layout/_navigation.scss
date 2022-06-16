@@ -12,12 +12,13 @@ nav {
     color: $blue;
     letter-spacing: 0.1rem;
   }
+  a:hover{
+    color: $color-white;
+  }
   li {
     list-style: none;
   }
-  a:hover{
-    color:$orange;
-  }
+  
   @include breakpoint(xxsmall-max){
     display:flex;
     flex-direction: column;

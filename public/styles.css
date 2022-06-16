@@ -95,6 +95,14 @@
   color: #fff;
 }
 
+.txtbuttonHoverHeading {
+  cursor: pointer;
+}
+
+.txtbuttonHoverHeading:hover {
+  color: #242424;
+}
+
 .carouselbutton--control {
   font-size: 18px;
   background-color: #242424;
@@ -227,7 +235,6 @@ footer h3 {
 header {
   margin: 0;
   padding: 1rem;
-  background-color: #fff;
   color: #242424;
 }
 
@@ -264,12 +271,12 @@ nav a {
   letter-spacing: 0.1rem;
 }
 
-nav li {
-  list-style: none;
+nav a:hover {
+  color: #fff;
 }
 
-nav a:hover {
-  color: orange;
+nav li {
+  list-style: none;
 }
 
 @media only screen and (max-width: 600px) {
@@ -459,9 +466,16 @@ body {
 }
 
 .homepage img {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
   width: 100%;
   margin-top: 0;
   z-index: 20;
+}
+
+.homepage img:hover {
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
 }
 
 .homepage p {
@@ -469,11 +483,18 @@ body {
 }
 
 .timerDiv {
-  background-color: #e1dfd6;
+  background-color: #fff;
   width: 100%;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.timerDiv h2 {
+  margin-top: -1rem;
 }
 
 .timer {
+  cursor: pointer;
   padding: 3rem;
   text-align: center;
 }
@@ -542,7 +563,7 @@ body {
 }
 
 .clock {
-  margin-top: 2rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
   font-size: 13rem;
   line-height: 1;
@@ -558,7 +579,6 @@ body {
 
 @media only screen and (max-width: 768px) {
   .clock {
-    margin: 0;
     font-size: 5rem;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -566,31 +586,31 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .clock {
-    margin: 0;
-    font-size: 3rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-right: 5%;
   }
 }
 
 @media only screen and (min-width: 1290px) {
   .clock {
-    margin: 0;
+    margin-top: 2rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    letter-spacing: -1rem;
+    padding-right: 3rem;
   }
 }
 
@@ -619,7 +639,6 @@ body {
 }
 
 .main-button {
-  cursor: pointer;
   font-size: 22px;
   height: 55px;
   text-transform: uppercase;
