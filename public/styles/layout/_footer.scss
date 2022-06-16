@@ -46,4 +46,10 @@ footer{
   padding-left:4rem;
   text-align: center;
   padding-bottom:2rem;
+  @include breakpoint(xxsmall-max){
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  justify-content: space-between;
+  }
 }}

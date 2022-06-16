@@ -191,6 +191,24 @@ footer h3 {
   padding-bottom: 2rem;
 }
 
+@media only screen and (max-width: 600px) {
+  .footer__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
 .grid__homepage {
   max-width: 1200px;
   margin: 0 auto;
@@ -242,7 +260,7 @@ nav {
 nav a {
   font-weight: bold;
   text-decoration: none;
-  color: blue;
+  color: #5050e8;
   letter-spacing: 0.1rem;
 }
 
@@ -264,6 +282,16 @@ nav a:hover {
         -ms-flex-direction: column;
             flex-direction: column;
     max-width: 100%;
+  }
+}
+
+.siteName {
+  padding-left: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .siteName {
+    padding: 0;
   }
 }
 
@@ -328,7 +356,6 @@ nav a:hover {
 .dropdownmenu {
   height: 80px;
   z-index: 90;
-  background-color: #fff;
   width: 100%;
   padding: 2rem;
   margin-top: 3rem;
@@ -348,7 +375,7 @@ nav a:hover {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  background-color: #fff;
+  color: #5050e8;
   width: 100%;
   margin-top: 2rem;
 }

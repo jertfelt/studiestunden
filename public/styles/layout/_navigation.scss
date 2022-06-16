@@ -9,7 +9,7 @@ nav {
   a {
     font-weight: bold;
     text-decoration: none;
-    color: blue;
+    color: $blue;
     letter-spacing: 0.1rem;
   }
   li {
@@ -23,6 +23,13 @@ nav {
     flex-direction: column;
     max-width: 100%;
   }
+}
+.siteName {
+  padding-left:2rem;
+  @include breakpoint(xxsmall-max){
+    padding:0;
+
+    }
 }
 
 .siteNav{
@@ -62,16 +69,17 @@ nav {
 .dropdownmenu{
   height: 80px;
   z-index: 90;
-  background-color: $color-white;
+ 
   width:100%;
   padding:2rem;
   margin-top:3rem;
+
   &--options{
     display:flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    background-color: $color-white;
+    color: $blue;
     width:100%;
     margin-top:2rem;
   }
