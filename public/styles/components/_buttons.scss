@@ -40,3 +40,25 @@
     color:$orange;
   }
 }
+
+.profilbildButt{
+  border:none;
+  background-color: $color-black;
+  color: $color-white;
+  text-align: center;
+  display:block;
+  width:120px; 
+  height:30px;
+}
+.profilbildButt:hover{
+  cursor:pointer;
+  background-color: $blue;
+}
+
+.becomeUser{
+  border:none;
+  background-color: $blue;
+  padding:1rem;
+  color: $color-white;
+  text-transform: uppercase;
+}

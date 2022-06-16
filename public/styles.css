@@ -152,6 +152,29 @@
   color: orange;
 }
 
+.profilbildButt {
+  border: none;
+  background-color: #242424;
+  color: #fff;
+  text-align: center;
+  display: block;
+  width: 120px;
+  height: 30px;
+}
+
+.profilbildButt:hover {
+  cursor: pointer;
+  background-color: #5050e8;
+}
+
+.becomeUser {
+  border: none;
+  background-color: #5050e8;
+  padding: 1rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+
 footer {
   padding: 2rem;
   background-color: #fff;

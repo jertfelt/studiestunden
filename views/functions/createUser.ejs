@@ -35,13 +35,19 @@ class="register__page">
         id="password" 
         name="password" 
         required>
-
+        <span class="row">
+        <label for="getFile"
+        style="padding:0.2rem;">
+          Ladda upp en profilbild 
+        </label>
         <button 
         class="profilbildButt"
-        style="display:block;width:120px; height:30px;" onclick="document.getElementById('getFile').click()">Your text here</button>
+        onclick="document.getElementById('getFile').click()">Ladda upp bild</button>
         <input type='file' id="getFile" style="display:none">
-  
-        <button>Bli medlem</button>
+      </span>
+
+        <button class="txtbuttonHover becomeUser">
+          Bli medlem</button>
         
       </form>
     </div>
