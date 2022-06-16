@@ -7,8 +7,44 @@
   </header>
 <main 
 class="register__page">
-  <section class="register__section">
 
+  <section class="register__section">
+    <div class="register__section--txt">
+      <h2>Registera dig här:</h2>
+      <form action="/users" 
+      method="POST"
+      class="form__register">
+  
+        <label for="name">
+         Användarnamn:</label>
+        <input type="text" 
+        id="name" 
+        name="name" 
+        required>
+  
+        <label for="email">
+          Email:</label>
+        <input type="email" 
+        id="email" 
+        name="email" 
+        required>
+
+        <label for="password">
+          Lösenord:</label>
+        <input type="password" 
+        id="password" 
+        name="password" 
+        required>
+
+        <button 
+        class="profilbildButt"
+        style="display:block;width:120px; height:30px;" onclick="document.getElementById('getFile').click()">Your text here</button>
+        <input type='file' id="getFile" style="display:none">
+  
+        <button>Bli medlem</button>
+        
+      </form>
+    </div>
   </section>
 
   
