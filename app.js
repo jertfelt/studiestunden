@@ -1,27 +1,37 @@
-const express = require("express");
+const express = require('express');
+
+
+// express app
 const app = express();
 
-
-const mongoose = require ("mongoose");
-const dbURI = "mongodb+srv://test:test@bowling.fjtiu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-mongoose.connect(dbURI, {useNewUrlParser: true})
-.catch(error => console.log(error));
-//*-----------middleware och statiska filer
-// access till css & bilder
-app.use(express.static("public"));
-app.use(express.urlencoded({extended: true}))
-//formula för next och response/requests så programmet inte bara fastnar på första funktionen
-app.use((request, response, next) =>{
-  response.locals.path = request.path;
-  next();
-})
-
-app.set("view engine", "ejs");
-
-//--------startsida:
-app.get("/", (request, response) => {
-  response.render("index", {title: "StudieStunden"});
-})
-
-
+// listen for requests
 app.listen(3000);
+
+// register view engine
+app.set('view engine', 'ejs');
+
+// middleware & static files
+app.use(express.static('public'));
+
+app.use((req, res, next) => {
+  console.log('new request made:');
+  console.log('host: ', req.hostname);
+  console.log('path: ', req.path);
+  console.log('method: ', req.method);
+  next();
+});
+
+
+app.use((req, res, next) => {
+  res.locals.path = req.path;
+  next();
+});
+
+app.get('/', (req, res) => {
+  res.render('index', { title: 'Start'});
+});
+
+// 404 page
+app.use((req, res) => {
+  res.status(404).render('404', { title: '404' });
+});
