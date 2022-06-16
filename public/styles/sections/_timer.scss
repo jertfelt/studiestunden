@@ -57,13 +57,11 @@
     align-items: center;
     font-family: $primary-font;
     @include breakpoint(small-max-m){
-    
       font-size:5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-     padding-right:5%;
-     
+      padding-right:5%;
     }
   
     @include breakpoint(large-min){
