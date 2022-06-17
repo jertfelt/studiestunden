@@ -10,6 +10,12 @@ body{
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
+
+  @include breakpoint(xxsmall-max){
+  margin-left:20px;
+  margin-top:-10px;
+  }
+
   @include breakpoint(medium-tablet-min){
     max-width:800px;
    }
@@ -37,7 +43,7 @@ body{
     margin-left: 12.5%;
     max-width:75%;
   }
-  
+
   &__h2{
     padding:0.3rem;
     background-color: $color-black;

@@ -44,14 +44,14 @@ nav {
     text-align: center;
     
   }
-  @include breakpoint(small-max-m){
+  @include breakpoint(medium-tablet-max){
   padding:0;
   display:none;
   }
 }
 
 .siteNavMobile{
-  @include breakpoint(small-max){
+  @include breakpoint(medium-tablet-min){
     display:none;
   }
   padding:0;
@@ -61,7 +61,7 @@ nav {
     display:flex;
     flex-direction: column;
     max-width: 100%;
-    margin-bottom:-2rem;
+    margin-bottom:-3rem;
   }
 }
 
