@@ -11,5 +11,11 @@
         margin-bottom:1rem;
       }
     }
+    @include breakpoint(mediumsize){
+      margin:3rem;
+      padding:2rem;
+      max-width:1020px;
+      margin-left:12.5%;
+    }
   }
 }
