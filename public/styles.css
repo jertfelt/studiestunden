@@ -312,6 +312,31 @@
   }
 }
 
+.form__section {
+  padding: 2rem;
+}
+
+.form__section--txt {
+  background-color: #fff;
+}
+
+.form__section--txt h2 {
+  background-color: #242424;
+  color: #fff;
+  padding: 0.2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .form__section {
+    margin: 3rem;
+    padding: 2rem;
+    max-width: 1020px;
+    margin-left: 12.5%;
+  }
+}
+
 footer {
   padding: 2rem;
   background-color: #fff;
@@ -1061,31 +1086,6 @@ button:focus, button:active {
   .content__404 img {
     width: 200px;
     padding: 0;
-  }
-}
-
-.register__section {
-  padding: 2rem;
-}
-
-.register__section--txt {
-  background-color: #fff;
-}
-
-.register__section--txt h2 {
-  background-color: #242424;
-  color: #fff;
-  padding: 0.2rem;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-@media only screen and (min-width: 1024px) {
-  .register__section {
-    margin: 3rem;
-    padding: 2rem;
-    max-width: 1020px;
-    margin-left: 12.5%;
   }
 }
 /*# sourceMappingURL=styles.css.map */

@@ -35,6 +35,10 @@ app.get("/registrera", (req, res) => {
   res.render("../views/functions/createUser.ejs",{ title: "Registrera dig"})
 })
 
+app.get("/login", (req, res) => {
+  res.render("../views/functions/login.ejs",{ title: "Logga in"})
+})
+
 // 404 page
 app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
