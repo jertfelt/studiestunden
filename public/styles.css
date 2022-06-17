@@ -819,6 +819,12 @@ button:focus, button:active {
   width: 50%;
 }
 
+@media only screen and (max-width: 600px) {
+  .quotes__introtxt p {
+    width: 100%;
+  }
+}
+
 .quotes__introtxt a {
   color: orange;
 }
@@ -826,6 +832,12 @@ button:focus, button:active {
 .quotes__introtxt h2 {
   font-family: "Righteous", Arial, sans-serif;
   font-size: 32px;
+}
+
+@media only screen and (max-width: 600px) {
+  .quotes__introtxt {
+    padding-bottom: 1rem;
+  }
 }
 
 .mySlides {
@@ -836,6 +848,13 @@ button:focus, button:active {
   margin: 3rem;
   padding: 0.2rem;
   padding-bottom: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .mySlides__padding {
+    padding: 0;
+    margin: 1rem;
+  }
 }
 
 .mySlides__buttons {
@@ -852,11 +871,24 @@ button:focus, button:active {
           align-items: center;
 }
 
+@media only screen and (max-width: 600px) {
+  .mySlides__buttons {
+    margin-top: 1rem;
+  }
+}
+
 .mySlides img {
   -webkit-filter: grayscale(0%);
           filter: grayscale(0%);
   max-height: 400px;
   width: 90%;
+}
+
+@media only screen and (max-width: 600px) {
+  .mySlides img {
+    max-height: 600px;
+    width: 100%;
+  }
 }
 
 .mySlides img:hover {

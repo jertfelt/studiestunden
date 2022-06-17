@@ -11,6 +11,9 @@
   &__introtxt{
     p {
       width:50%;
+      @include breakpoint(xxsmall-max){
+       width:100%;
+       }
     }
     a{
       color:$orange;
@@ -20,6 +23,9 @@
       font-size:32px;
     }
     padding-bottom:2rem;
+    @include breakpoint(xxsmall-max){
+    padding-bottom:1rem;
+      }
   }
  
 }
@@ -30,19 +36,29 @@
     margin:3rem;
     padding:0.2rem;
     padding-bottom:1rem;
+    @include breakpoint(xxsmall-max){
+     padding:0;
+     margin:1rem;
+    }
   }
   &__buttons{
     padding-bottom:3rem;
     display:flex;
     flex-direction: column;
     align-items: center;
+    @include breakpoint(xxsmall-max){
      
+      margin-top:1rem;
+     }
   }
   img{
     filter: grayscale(0%);
     max-height:400px;
     width:90%;
-  
+    @include breakpoint(xxsmall-max){
+      max-height:600px;
+      width:100%;
+    }
 
   }
   img:hover{
