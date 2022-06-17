@@ -26,7 +26,4 @@ Javascript
 Eventuellt Typescript
 
 Beroende på så kommer jag att använda Heroku eller Google som deployment
-
-![image](https://user-images.githubusercontent.com/30622818/173903343-e1c63b1e-7127-41b0-bf00-fed97dc05f4e.png)
-![image](https://user-images.githubusercontent.com/30622818/173903490-d70e86ca-3c9b-4168-add0-e34d70a6d1ba.png)
-![image](https://user-images.githubusercontent.com/30622818/173903525-9ec0cd3a-96ed-4811-89f6-04a0b24c69ba.png)
+Trelloboard: https://trello.com/b/8JW5fYdJ/programmering
