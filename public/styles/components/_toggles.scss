@@ -10,13 +10,18 @@
 .row{
   display:flex;
   flex-direction: row;
+  &__hideMobile{
+    @include breakpoint(small-max-m){
+      display:none;
+    }
+  }
+
   &__spacebetween{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
   }
   @include breakpoint(small-max-m){
-
     font-size:14px;
     display:flex;
     flex-direction: column;
@@ -35,4 +40,5 @@
 .bluebgtoggle{
   background-color: $blue;
 }
+
 
