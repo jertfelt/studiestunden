@@ -18,7 +18,26 @@ För den som är inloggad, utöver timer och slide:
 4. Logga ut och ändra sina uppgifter
 5. Eventuellt synka med sin google kalender /ha en kalender på hemsidan för zoom/meet-möten
 
+Jag jobbar här med:
+NODE.JS
+Express & EJS
+Sass
+Javascript
+Eventuellt Typescript
 
-![image](https://user-images.githubusercontent.com/30622818/173903343-e1c63b1e-7127-41b0-bf00-fed97dc05f4e.png)
-![image](https://user-images.githubusercontent.com/30622818/173903490-d70e86ca-3c9b-4168-add0-e34d70a6d1ba.png)
-![image](https://user-images.githubusercontent.com/30622818/173903525-9ec0cd3a-96ed-4811-89f6-04a0b24c69ba.png)
+Beroende på så kommer jag att använda Heroku eller Google som deployment
+
+Trelloboard: https://trello.com/b/8JW5fYdJ/programmering
+
+Startsida:
+![image](https://user-images.githubusercontent.com/30622818/174267487-50b24a8c-1928-422e-b353-da4393e1e1ff.png)
+![image](https://user-images.githubusercontent.com/30622818/174267504-9a1f82ee-fe5c-4f82-8e76-83ed743b00ca.png)
+![image](https://user-images.githubusercontent.com/30622818/174267568-37570470-bed8-411d-84b9-3bb8d8b70ee2.png)
+
+Registrera dig:
+![image](https://user-images.githubusercontent.com/30622818/174267623-421de0b5-8f7f-4495-a944-deae543a7abb.png)
+
+Logga in:
+![image](https://user-images.githubusercontent.com/30622818/174267659-851c6000-9cf4-4ed6-ab99-9b4c04501861.png)
+
+
