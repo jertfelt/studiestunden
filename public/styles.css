@@ -448,6 +448,18 @@ body {
       flex-wrap: wrap;
 }
 
+@media only screen and (min-width: 991px) {
+  .homepage {
+    max-width: 800px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .homepage {
+    max-width: 80%;
+  }
+}
+
 @media only screen and (min-width: 600px) {
   .homepage {
     margin-left: 0%;
@@ -473,13 +485,36 @@ body {
   }
 }
 
-.homepage h2 {
+@media only screen and (min-width: 956px) and (max-width: 1023px) {
+  .homepage {
+    margin-left: 12.5%;
+    max-width: 75%;
+  }
+}
+
+.homepage__h2 {
   padding: 0.3rem;
   background-color: #242424;
   color: #fff;
   margin-bottom: 0;
   z-index: 30;
   padding-left: 1rem;
+}
+
+.homepage__h2--img {
+  padding: 0.3rem;
+  color: #fff;
+  margin-bottom: 0;
+  z-index: 30;
+  padding-left: 1rem;
+  background-color: #242424;
+}
+
+@media only screen and (min-width: 2000px) {
+  .homepage__h2--img {
+    width: 100%;
+    max-width: 980px;
+  }
 }
 
 .homepage a {
@@ -497,8 +532,16 @@ body {
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
   width: 100%;
+  max-width: 900px;
   margin-top: 0;
   z-index: 20;
+}
+
+@media only screen and (min-width: 1200px) {
+  .homepage img {
+    width: 100%;
+    max-width: 1000px;
+  }
 }
 
 .homepage img:hover {

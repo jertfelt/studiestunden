@@ -10,6 +10,13 @@ body{
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
+  @include breakpoint(medium-tablet-min){
+    max-width:800px;
+   }
+   @include breakpoint(medium-tablet-max){
+     max-width:80%;
+   }
+ 
   @include breakpoint(xsmall-max){
     margin-left: 0%;
     max-width:100%;
@@ -26,14 +33,34 @@ body{
     margin-left: 25%;
     max-width:50%;
   }
-  h2{
+  @include breakpoint(min-max){
+    margin-left: 12.5%;
+    max-width:75%;
+  }
+  
+  &__h2{
     padding:0.3rem;
     background-color: $color-black;
     color: $color-white;
     margin-bottom:0;
     z-index:30;
     padding-left:1rem;
+    
+    &--img{
+    padding:0.3rem;
+    color: $color-white;
+    margin-bottom:0;
+    z-index:30;
+    padding-left:1rem;
+    background-color: $color-black;
+    @include breakpoint(min-2000){
+      width:100%;
+      max-width:980px;
+    }
+   
+    }
   }
+  
   a{
     padding:1rem;
     color:$blue;
@@ -45,15 +72,23 @@ body{
   }
 
   img{
+  
     filter: grayscale(100%);
     width:100%;
+    max-width:900px;
     margin-top:0;
     z-index:20;
+    @include breakpoint(min-1200){
+      width:100%;
+      max-width:1000px;
+    }
+  
   }
   img:hover{
-   filter: grayscale(0%);
+    filter: grayscale(0%);
   }
   p{
     width:75%;
   }
+  
 }
