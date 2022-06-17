@@ -6,6 +6,7 @@ nav {
   justify-content: space-between;
   padding-right:1rem;
   font-family: $primary-font;
+
   a {
     font-weight: bold;
     text-decoration: none;
@@ -56,6 +57,12 @@ nav {
   padding:0;
   width:100%;
   text-align: center;
+  @include breakpoint(xxsmall-max){
+    display:flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin-bottom:-2rem;
+  }
 }
 
 .navMobile{
@@ -69,10 +76,14 @@ nav {
 .dropdownmenu{
   height: 80px;
   z-index: 90;
- 
   width:100%;
   padding:2rem;
   margin-top:3rem;
+
+  @include breakpoint(xxsmall-max){
+    background-color: $color-grey;
+    z-index:98;
+  }
 
   &--options{
     display:flex;

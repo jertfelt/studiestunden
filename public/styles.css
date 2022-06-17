@@ -371,6 +371,20 @@ nav li {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .siteNavMobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    max-width: 100%;
+    margin-bottom: -2rem;
+  }
+}
+
 .navMobile {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -394,6 +408,13 @@ nav li {
   width: 100%;
   padding: 2rem;
   margin-top: 3rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .dropdownmenu {
+    background-color: #e1dfd6;
+    z-index: 98;
+  }
 }
 
 .dropdownmenu--options {
