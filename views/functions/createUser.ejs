@@ -5,48 +5,52 @@
   <header>
   <%- include ("../partials/nav.ejs") %>
   </header>
-<main 
-class="register__page">
+<main>
 
   <section class="register__section">
     <div class="register__section--txt">
-      <h2>Registera dig här:</h2>
+      <h2>Registrera dig här:</h2>
       <form action="/users" 
       method="POST"
       class="form__register">
-  
-        <label for="name">
-         Användarnamn:</label>
-        <input type="text" 
-        id="name" 
-        name="name" 
-        required>
-  
-        <label for="email">
-          Email:</label>
-        <input type="email" 
-        id="email" 
-        name="email" 
-        required>
-
+        <span>
+          <label for="name">
+          Användarnamn:</label>
+          <input type="text" 
+          id="name" 
+          name="name" 
+          required>
+        </span>
+        <span>
+          <label for="email">
+            Email:</label>
+          <input type="email" 
+          id="email" 
+          name="email" 
+          required>
+        </span>
+        <span>
         <label for="password">
           Lösenord:</label>
         <input type="password" 
         id="password" 
         name="password" 
         required>
-        <span class="row">
-        <label for="getFile"
-        style="padding:0.2rem;">
-          Ladda upp en profilbild 
-        </label>
-        <button 
-        class="profilbildButt"
-        onclick="document.getElementById('getFile').click()">Ladda upp bild</button>
-        <input type='file' id="getFile" style="display:none">
-      </span>
+        </span>
+        <span class="row profilbildspan">
+          <label for="getFile"
+          >
+            Välj profilbild 
+          </label>
+          <button 
+          class="profilbildButt"
+          onclick="document.getElementById('getFile').click()">Ladda upp bild</button>
+          <input type='file' 
+          id="getFile" >
+        </span>
 
-        <button class="txtbuttonHover becomeUser">
+        <button 
+        class="txtbuttonHover largeButt ">
           Bli medlem</button>
         
       </form>

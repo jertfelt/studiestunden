@@ -47,18 +47,23 @@
   color: $color-white;
   text-align: center;
   display:block;
-  width:120px; 
+  width: 150px;
   height:30px;
+  font-family: $primary-font;
 }
 .profilbildButt:hover{
   cursor:pointer;
   background-color: $blue;
 }
 
-.becomeUser{
+.largeButt{
   border:none;
   background-color: $blue;
   padding:1rem;
   color: $color-white;
   text-transform: uppercase;
+  font-family: $primary-font;
+  font-weight: bold;
+  max-width:150px;
+  width:100%;
 }
