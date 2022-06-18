@@ -1,10 +1,54 @@
 .taskboard{
+  padding:2rem;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  &__choose{
+    padding:2rem;
+    h2{
+      background-color: $color-black;
+      padding:0.3rem;
+      color:$color-white;
+      width:300px;
+      padding-left:1rem;
+    }
+    p{
+      width:500px;
+    }
+    
+  }
+  &__select{
+    background-color: $color-black;
+    padding: 1rem;
+    color:$color-white;
+    h3{
+      margin-right:2rem;
+    }
+    select {
+      background-color: $color-black;
+      border:none;
+      color:$color-white;
+      font-size:large;
+      font-family: $primary-font;
+    }
+  }
   &__kanbanboard{
   display:flex;
   padding: 30px;
   width: 750px;
   background-color: $blue;
   border-radius:5px;
+}
+&__about{
+  padding:2rem;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-white;
+  img{
+    width:300px;
+  }
+  width:75%;
 }
 }
 

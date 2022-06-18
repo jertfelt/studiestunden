@@ -782,6 +782,54 @@ body {
   background-color: #5050e8;
 }
 
+.taskboard {
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.taskboard__choose {
+  padding: 2rem;
+}
+
+.taskboard__choose h2 {
+  background-color: #242424;
+  padding: 0.3rem;
+  color: #fff;
+  width: 300px;
+  padding-left: 1rem;
+}
+
+.taskboard__choose p {
+  width: 500px;
+}
+
+.taskboard__select {
+  background-color: #242424;
+  padding: 1rem;
+  color: #fff;
+}
+
+.taskboard__select h3 {
+  margin-right: 2rem;
+}
+
+.taskboard__select select {
+  background-color: #242424;
+  border: none;
+  color: #fff;
+  font-size: large;
+  font-family: "Roboto Mono", monospace;
+}
+
 .taskboard__kanbanboard {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -790,6 +838,26 @@ body {
   width: 750px;
   background-color: #5050e8;
   border-radius: 5px;
+}
+
+.taskboard__about {
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+  width: 75%;
+}
+
+.taskboard__about img {
+  width: 300px;
 }
 
 .kanban__column {

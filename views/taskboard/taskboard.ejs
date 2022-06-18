@@ -9,22 +9,26 @@
 
   <main class="taskboard">
     <div class="taskboard__choose">
-      <h2>Välj metod:</h2>
-      <span>
-        <select 
-        name="board" 
-        id="boardoption">
-          <option value="Kanban">Kanban</option>
-          <option value="Scrum">Scrum</option>
-          <option value="Enkel">Enkel</option>
-        </select>
+      <h2>Dags att plugga!</h2>
+      <span class="row">
+      <p>Och det görs bäst genom att strukturera! Antingen med kanban-metod, scrum-metod eller en vanlig hederlig "Att göra"-lista. </p>
+      <span class="row taskboard__select">
+        <h3>Välj metod:</h3>
+          <select 
+          name="board" 
+          id="boardoption">
+            <option value="Kanban">Kanban</option>
+            <option value="Scrum">Scrum</option>
+            <option value="Enkel">Enkel</option>
+          </select>
       </span>
+    </span>
     </div>
 
     <div 
     class="taskboard__kanban kanban">
       <h2>Kanban-tavla</h2>
-      <p></p>
+      <p>To Do - Doing - Done</p>
       <div class="taskboard__kanbanboard"
       id="taskboard">
       <div class="kanban__column">
@@ -63,7 +67,7 @@
       </div>
     </div>
 
-    <div class="taskboard__about--kanban kanban">
+    <div class="taskboard__about taskboard__about--kanban kanban">
       <h2>Om Kanban:</h2>
       <p>Kanban är en pågående process.</p>
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Simple-kanban-board-.jpg/250px-Simple-kanban-board-.jpg"
@@ -72,7 +76,7 @@
       <p>En Kanban-tavla med fält för "Att göra", "Pågående" och "Klart" är ett utmärkt sätt att börja visualisera arbete.</p>
     </div>
     
-    <div class="taskboard__about--scrum scrum">
+    <div class="taskboard__about taskboard__about--scrum scrum">
       <h2>Om Scrum-metoden:</h2>
       <p>Scrum har start-och-slutdatum.</p>
       <img src="https://clickup.com/blog/wp-content/uploads/2020/03/image7-3.gif"
