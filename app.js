@@ -32,11 +32,15 @@ app.get('/', (req, res) => {
 });
 
 app.get("/registrera", (req, res) => {
-  res.render("../views/functions/createUser.ejs",{ title: "Registrera dig"})
+  res.render("../views/userInterface/createUser.ejs",{ title: "Registrera dig"})
 })
 
 app.get("/login", (req, res) => {
-  res.render("../views/functions/login.ejs",{ title: "Logga in"})
+  res.render("../views/userInterface/login.ejs",{ title: "Logga in"})
+})
+
+app.get("/medlem-detaljer", (req, res) => {
+  res.render("../views/userInterface/details.ejs",{ title: "Dina detaljer"})
 })
 
 // 404 page
