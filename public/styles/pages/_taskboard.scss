@@ -1,0 +1,49 @@
+.taskboard{
+  &__kanbanboard{
+  display:flex;
+  padding: 30px;
+  width: 750px;
+  background-color: $blue;
+  border-radius:5px;
+}
+}
+
+.kanban{
+  &__column{
+    flex: 1;
+    &--title{
+      margin-bottom:10px;
+      font-size: 20px;
+      color:$color-white;
+      user-select: none;
+    }
+  }
+  &__column:not(:last-child){
+    margin-right:1rem;
+  }
+  &__item{
+    &--input{
+      padding:10px 15px;
+      box-sizing: border-box;
+      background-color: $color-grey;
+      cursor: pointer;
+    }
+  }
+  &__dropzone{
+    height:10px;
+    transition: background 0.15s, height 0.15s;
+  }
+  &__dropzone--active{
+    height:20px;
+    background: rgba(0,0,0,0.25);
+  }
+  &__add-item{
+    width:100%;
+    padding: 10px 0;
+    font-size:16px;
+    color: $color-white;
+    background: $color-black;
+    border:none;
+    cursor:pointer;
+  }
+}

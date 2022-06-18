@@ -39,8 +39,12 @@ app.get("/login", (req, res) => {
   res.render("../views/userInterface/login.ejs",{ title: "Logga in"})
 })
 
-app.get("/medlem-detaljer", (req, res) => {
+app.get("/detaljer", (req, res) => {
   res.render("../views/userInterface/details.ejs",{ title: "Dina detaljer"})
+})
+
+app.get("/taskboard", (req, res) => {
+  res.render("../views/taskboard/taskboard.ejs",{ title: "Din anslagstavla"})
 })
 
 // 404 page
