@@ -27,13 +27,14 @@
 
     <div 
     class="taskboard__kanban kanban">
-      <h2>Kanban-tavla</h2>
-      <p>To Do - Doing - Done</p>
+      <h2 class="heading bluefont">
+        Kanban-tavla</h2>
+      <p class="subheading">To Do - Doing - Done</p>
       <div class="taskboard__kanbanboard"
-      id="taskboard">
+      id="taskboardKanban">
       <div class="kanban__column">
-        <div class="kanban__column--title">
-          Not Started
+        <div class="taskboard__columntitle--title subheading whitefont">
+          To do
         </div>
         <div class="kanban__items">
           <div class="kanban__item--input">
@@ -45,54 +46,157 @@
         </div>
         <button class="kanban__add-item" type="button">Lägg till</button>
       </div>
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading whitefont">
+         Doing
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
 
+          </div>
+        </div>
+        <button class="kanban__add-item" type="button">Lägg till</button>
+      </div>
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading whitefont">
+         Done
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
+
+          </div>
+        </div>
+        <button class="kanban__add-item" type="button">Lägg till</button>
+      </div>
       </div>
 
     </div>
-    <div class="taskboard__scrum">
-      <h2>Scrum</h2>
-      <p></p>
-      <div class="taskboard__board"
-      id="taskboard">
+    <div class="taskboard__kanban scrum">
+      <h2 class="heading">Scrum</h2>
+      <p class="subheading">Strukturera med sprints</p>
+      <div class="taskboard__scrum"
+      id="taskboardScrum">
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading blackfont">
+          Backlog
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
 
+          </div>
+        </div>
+        <button class="kanban__add-item orangebg" type="button">Lägg till</button>
       </div>
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading blackfont">
+          To do
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
+
+          </div>
+        </div>
+        <button class="kanban__add-item" type="button">Lägg till</button>
+      </div>
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading blackfont">
+          Doing
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
+
+          </div>
+        </div>
+        <button class="kanban__add-item " type="button">Lägg till</button>
+      </div>
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading blackfont">
+          Done
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
+
+          </div>
+        </div>
+        <button class="kanban__add-item " type="button">Lägg till</button>
+      </div>
+      </div>
+
     </div>
 
-    <div class="taskboard__enkel">
-      <h2>Att göra:</h2>
-      <p></p>
-      <div class="taskboard__board"
-      id="taskboard">
-
+    <div class="taskboard__kanban enkel">
+      <h2 class="heading">Att göra:</h2>
+      <p class="subheading">En enkel att-göra-lista </p>
+      <div class="taskboard__board
+      taskboard__enkel"
+      id="taskboardEnkel">
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading whitefont">
+          Att göra:
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
+          </div>
+        </div>
+        <button class="kanban__add-item" type="button">Lägg till</button>
+      </div>
       </div>
     </div>
 
     <div class="taskboard__about taskboard__about--kanban kanban">
+      
       <h2>Om Kanban:</h2>
-      <p>Kanban är en pågående process.</p>
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Simple-kanban-board-.jpg/250px-Simple-kanban-board-.jpg"
       alt="Wikipedia: Enkel kanban-tavla">
+      <p class="subheading">Kanban är en pågående process.</p>
       <p>Kanban är en visuell metod för att hantera arbetsflödet på individ-, team- och till och med organisationsnivå. Det uttalas "kahn-bahn", och betyder "visuell signal" eller "kort" på japanska. </p>
-      <p>En Kanban-tavla med fält för "Att göra", "Pågående" och "Klart" är ett utmärkt sätt att börja visualisera arbete.</p>
+      <p>En Kanban-tavla med fält för "Att göra", "Pågående" och "Klart" är ett bra och enkelt sätt att börja visualisera arbete.</p>
     </div>
     
     <div class="taskboard__about taskboard__about--scrum scrum">
       <h2>Om Scrum-metoden:</h2>
-      <p>Scrum har start-och-slutdatum.</p>
+      <p class="subheading">Scrum har start-och-slutdatum.</p>
+      <div class="desktopgrid">
+      <div>
       <img src="https://clickup.com/blog/wp-content/uploads/2020/03/image7-3.gif"
       alt=" Enkel scrum-tavla">
-      <h3>Det finns fyra kolumner i Scrum-projekt:</h3>
+      <h3 class="subheading">Det finns fyra kolumner i ett Scrum-projekt:</h3>
       <p>User stories ‒  i sprintbackloggen, ännu inte uppdelad i några uppgifter</p>
       <p>Att göra - saker som ännu inte påbörjats än. </p>
       <p> Pågående: saker som jobbas på just nu</p>
       <p>Färdiga uppgifter</p>
       <p>Man kan också lägga till "In Review", en kolumn för där man testar saker, samt "On Hold", saker som dykt upp men som inte görs under den här sprinten. </p>
-      <p>Genomförandet sker i cykler
+      </div>
+      <span>
+      <p>Genomförandet sker i cykler.
 
         Det innebär att man börjar med den viktigaste och grundläggande funktionaliteten (dvs den funktionalitet som produktägaren prioriterar mest) och bygger sedan på med mer och mer funktionalitet
         
         Detta görs i så kallade ”sprintar” ‒ fasta leveranscykler på en till fyra veckor. Under sprinten planerar och utvecklar man nästa steg (eller version) av produkten. 
       </p>
+    </span>
+  </div>
     </div>
   </main>
 

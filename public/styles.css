@@ -31,8 +31,20 @@
   }
 }
 
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+.blackfont {
+  color: #242424;
+}
+
+.whitefont {
+  color: #fff;
+}
+
+.bluefont {
+  color: #5050e8;
+}
+
+.orangefont {
+  color: orange;
 }
 
 .hidden {
@@ -794,6 +806,23 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .taskboard {
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .taskboard__choose {
@@ -810,6 +839,12 @@ body {
 
 .taskboard__choose p {
   width: 500px;
+}
+
+@media only screen and (max-width: 768px) {
+  .taskboard__choose {
+    padding: 0;
+  }
 }
 
 .taskboard__select {
@@ -830,6 +865,14 @@ body {
   font-family: "Roboto Mono", monospace;
 }
 
+@media only screen and (max-width: 768px) {
+  .taskboard__kanban {
+    padding: 1rem;
+    max-width: 80%;
+    margin: 1rem;
+  }
+}
+
 .taskboard__kanbanboard {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -838,9 +881,68 @@ body {
   width: 750px;
   background-color: #5050e8;
   border-radius: 5px;
+  padding-bottom: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .taskboard__kanbanboard {
+    padding: 1rem;
+    max-width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.taskboard__scrum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 30px;
+  width: 750px;
+  background-color: orange;
+  border-radius: 5px;
+  padding-bottom: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .taskboard__scrum {
+    padding: 1rem;
+    max-width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.taskboard__enkel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 30px;
+  width: 750px;
+  background-color: #242424;
+  border-radius: 5px;
+  padding-bottom: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .taskboard__enkel {
+    padding: 1rem;
+    max-width: 80%;
+  }
 }
 
 .taskboard__about {
+  margin-top: 2rem;
   padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -849,15 +951,80 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: #fff;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  .taskboard__about {
+    width: 80%;
+  }
+}
+
+.taskboard__about p {
   width: 75%;
 }
 
 .taskboard__about img {
   width: 300px;
+}
+
+.taskboard__about--kanban {
+  color: #fff;
+  background-color: #5050e8;
+}
+
+.taskboard__about--scrum {
+  color: #fff;
+  background-color: #242424;
+}
+
+@media only screen and (min-width: 1290px) {
+  .taskboard__about--scrum .desktopgrid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .taskboard__about--scrum .desktopgrid span {
+    max-height: 500px;
+    padding: 1rem;
+    background-color: orange;
+    color: #242424;
+  }
+}
+
+.taskboard__about--scrum span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.taskboard__columntitle {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.taskboard__columntitle--title {
+  margin-bottom: 10px;
+  font-size: 20px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .kanban__column {
@@ -874,6 +1041,13 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .kanban__column {
+    margin-bottom: 1rem;
+    max-width: 95%;
+  }
 }
 
 .kanban__column:not(:last-child) {
@@ -907,6 +1081,12 @@ body {
   background: #242424;
   border: none;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .kanban__add-item {
+    max-width: 100px;
+  }
 }
 
 .timerDiv {

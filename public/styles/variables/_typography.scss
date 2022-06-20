@@ -22,10 +22,15 @@
   }
 }
 
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+.blackfont{
+  color:$color-black;
+}
+.whitefont{
+  color:$color-white;
+}
+.bluefont{
+  color: $blue;
+}
+.orangefont{
+  color:$orange;
 }
