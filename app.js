@@ -13,6 +13,7 @@ app.set('view engine', 'ejs');
 // middleware & static files
 app.use(express.static('public'));
 
+
 app.use((req, res, next) => {
   console.log('new request made:');
   console.log('host: ', req.hostname);
