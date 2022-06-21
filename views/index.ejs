@@ -8,17 +8,16 @@
 
 <main class="homepage">
  
-  <section>
-  <h2>Det här är en hemsida för dig som pluggar</h2>
-  <img src="https://assets.entrepreneur.com/content/3x2/2000/20150708172005-coding-working-workspace-apple-macintosh.jpeg" 
-  class="img">
+  <section class="homepage__about">
+  <h2 class="homepage__h2--img">Det här är en hemsida för dig som pluggar</h2>
+  <img src="img/computadora.png" >
   <p>Med en timer, att-göra-lista, och anslagstavla för dina olika projekt!</p>
   <p>Visste du att genom att ta planerade och strukturerade pauser i ditt arbete blir du i längden mer effektiv och mår bättre?</p>
   <p>Den här hemsidan är till för dig som har en rörig hjärna och behöver hjälp med strukturen. För dig som gillar att skriva och checka av att-göra-listor, få översikt, projektleda eller bara tycker att Skalmans matochsovklocka är fenomenal.</p>
   <p>Sidan är utvecklad för programmerings-studenter, men kan användas av alla studenter som sitter vid datorn och som har behov av struktur och tidkontroll.</p>
   </section>
   <section class="timerDiv">
-    <h2>Pomodoro-metoden:</h2>
+    <h2 class="homepage__h2 ">Pomodoro-metoden:</h2>
    
     <%- include ("./functions/timer.ejs") %>
     <div class="timer__infotxt">
@@ -37,7 +36,7 @@
   </div>
   </section>
   <section class="becomemember notloggedin">
-    <h2>Tveka inte</h2>
+    <h2 class="homepage__h2">Tveka inte</h2>
     <span class="row row__spacebetween">
       <h3>
         <a href="/registrera">

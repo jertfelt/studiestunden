@@ -6,8 +6,12 @@ $screen-small: 768px;
 $screen-tablet: 991px;
 $screen-med: 1024px;
 $screen-med-max: 1279px;
+$screen-1200: 1200px;
 $screen-lg: 1290px;
 $screen-xl: 1450px;
+$screen-xxl: 2000px;
+$screen-min956: 956px;
+$screen-max-max1018: 1018px;
 
 @mixin breakpoint($canvas) {
 
@@ -65,4 +69,23 @@ $screen-xl: 1450px;
       @content;
     }
   }
+  @else if 
+  $canvas==min-1200{
+    @media only screen and (min-width: $screen-1200) {
+      @content;
+    }
+  }
+  @else if 
+  $canvas==min-2000{
+    @media only screen and (min-width: $screen-xxl){
+      @content;
+    }
+  }
+  @else if $canvas==min-max{
+    @media only screen and (min-width: 956px) and (max-width:1023px){
+      @content;
+    }
+  
+  }
+
 }

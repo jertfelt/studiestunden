@@ -6,6 +6,14 @@
   background-color: $color-black;
   color:$color-white;
 }
+
+.txtbuttonHoverHeading{
+  cursor: pointer;
+}
+.txtbuttonHoverHeading:hover{
+  color:$color-black;
+}
+
 .carouselbutton{
   &--control{
     font-size:18px;
@@ -31,4 +39,31 @@
   &--number:active{
     color:$orange;
   }
+}
+
+.profilbildButt{
+  border:none;
+  background-color: $color-black;
+  color: $color-white;
+  text-align: center;
+  display:block;
+  width: 150px;
+  height:30px;
+  font-family: $primary-font;
+}
+.profilbildButt:hover{
+  cursor:pointer;
+  background-color: $blue;
+}
+
+.largeButt{
+  border:none;
+  background-color: $blue;
+  padding:1rem;
+  color: $color-white;
+  text-transform: uppercase;
+  font-family: $primary-font;
+  font-weight: bold;
+  max-width:150px;
+  width:100%;
 }

@@ -1,0 +1,54 @@
+<html lang="sv">
+<%- include("../partials/head.ejs") %> 
+
+<body>
+  <header>
+  <%- include ("../partials/nav.ejs") %>
+  </header>
+<main>
+
+  <section class="form__section">
+    <div class="form__section--txt">
+    <h2>
+      Logga in</h2>
+    <div 
+    id="loginForm">
+    <form action="" 
+    id="login"
+    class="form__register">
+    <span>
+      <label 
+      for="username">
+        Användarnamn/Email:</label>
+      <input 
+      name="usernameLogin"
+      type="text" 
+      id="usernameLogin"
+      required>
+    </span>
+    <span>
+      <label 
+      for="loginpass">
+        Lösenord:</label>
+      <input 
+      name="passwordLogin"
+      type="password" 
+      id="passwordLogin"
+      required>
+    </span>
+      <button 
+      class="txtbuttonHover largeButt">
+      Logga in</button>
+    </form>
+  </div>
+  </section>
+
+  
+<aside class="quotes">
+  <%- include ("../partials/quotes.ejs") %>
+</aside>
+
+  <%- include("../partials/footer.ejs") %>
+</body>
+</html>
+</main>

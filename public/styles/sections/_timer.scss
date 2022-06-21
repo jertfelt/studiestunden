@@ -1,18 +1,45 @@
   .timerDiv{
-    background-color: $color-grey;
+    background-color: $color-white;
     width:100%;
-   
+    margin-top:2rem;
+    padding-bottom:2rem;
+    h2{
+      margin-top:-1rem;
+    }
   }
   
   .timer {
+    cursor: pointer;
       padding: 3rem;
       text-align: center;
-     
+
       &__infotxt{
         padding-left:2rem;
         li {
           width:75%;
         }
+        @include breakpoint(large-min){
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          li {
+            width:75%;
+            margin-left:12%;
+          }
+        }
+        @include breakpoint(xxsmall-max){
+          margin-top:1rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width:100%;
+          padding-left:0;
+          li {
+            width:75%;
+            margin-left:12%;
+          }
+          }
+    
       }
       @include breakpoint(small-max-m){
         padding:2rem;
@@ -30,32 +57,39 @@
         flex-direction: column;
         align-items: center;
       }
+     
   }
   
   .clock {
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-bottom: 2rem;
     font-size: 13rem;
     line-height: 1;
     display: flex;
-    margin-left:10%;
+    // margin-left:10%;
     align-items: center;
     font-family: $primary-font;
     @include breakpoint(small-max-m){
-      margin:0;
       font-size:5rem;
       display: flex;
       align-items: center;
+      justify-content: center;
+      padding-right:5%;
     }
-    @include breakpoint(xxsmall-max){
-      margin:0;
-      font-size:3rem;
+  
+    @include breakpoint(large-min){
+      margin-top:2rem;
       display: flex;
       align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      letter-spacing: -1rem;
+      padding-right:3rem;
     }
   }
-  
+
   .mode-button {
+  
     font-size: 16px;
     height: 28px;
     cursor: pointer;
@@ -78,7 +112,6 @@
   }
   
   .main-button {
-    cursor: pointer;
     font-size: 22px;
     height: 55px;
     text-transform: uppercase;
@@ -108,36 +141,3 @@
 
 
 
-
-
-// .timer {
-//   font-family: $primary-font;
-//   display: inline-block;
-//   padding: 24px 32px;
-//   border-radius: 30px;
-//   background: $color-white;
-// }
-
-// .timer__part {
-//   font-size: 36px;
-//   font-weight: bold;
-// }
-
-// .timer__btn {
-//   width: 50px;
-//   height: 50px;
-//   margin-left: 16px;
-//   border-radius: 50%;
-//   border: none;
-//   color: $color-grey;
-//   background: $color-black;
-//   cursor: pointer;
-// }
-
-// .timer__btn--start {
-//   background: $blue;
-// }
-
-// .timer__btn--stop {
-//   background: #ff0256;
-// }

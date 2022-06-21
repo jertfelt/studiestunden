@@ -1,7 +1,7 @@
 header{
   margin: 0;
   padding:1rem;
-  background-color: $color-white;
+  
   color: $color-black;
 
   @include breakpoint(xxsmall-max){

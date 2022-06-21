@@ -1,0 +1,190 @@
+.taskboard{
+  padding:2rem;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  @include breakpoint(small-max-m){
+    padding:0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__choose{
+    padding:2rem;
+    h2{
+      background-color: $color-black;
+      padding:0.3rem;
+      color:$color-white;
+      width:300px;
+      padding-left:1rem;
+    }
+    p{
+      width:500px;
+    }
+    @include breakpoint(small-max-m){
+      padding:0;
+
+    }
+  }
+  &__select{
+    background-color: $color-black;
+    padding: 1rem;
+    color:$color-white;
+    h3{
+      margin-right:2rem;
+    }
+    select {
+      background-color: $color-black;
+      border:none;
+      color:$color-white;
+      font-size:large;
+      font-family: $primary-font;
+    }
+  }
+  &__kanban{
+    @include breakpoint(small-max-m){
+      padding:1rem;
+      max-width: 80%;
+      margin:1rem;
+    }
+  }
+  &__kanbanboard{
+  display:flex;
+  padding: 30px;
+  width: 750px;
+  background-color: $blue;
+  border-radius:5px;
+  padding-bottom:2rem;
+  @include breakpoint(small-max-m){
+    padding: 1rem;
+    max-width: 100%;
+    display:flex;
+    flex-direction: column;
+  }
+}
+&__scrum{
+  @include breakpoint(small-max-m){
+    padding:1rem;
+    max-width: 100%;
+    display:flex;
+    flex-direction: column;
+  }
+  display:flex;
+  padding: 30px;
+  width: 750px;
+  background-color: $orange;
+  border-radius:5px;
+  padding-bottom:2rem;
+}
+&__enkel{
+  @include breakpoint(small-max-m){
+    padding:1rem;
+    max-width: 80%;
+    
+  }
+  display:flex;
+  padding: 30px;
+  width: 750px;
+  background-color: $color-black;
+  border-radius:5px;
+  padding-bottom:2rem;
+}
+&__about{
+  margin-top: 2rem;
+  padding:2rem;
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width:50%;
+  @include breakpoint(small-max-m){
+    width:80%;
+  }
+  p{
+    width:75%;
+  }
+  img{
+    width:300px;
+  }
+  &--kanban{
+    color:$color-white;
+    background-color: $blue;
+  }
+  &--scrum{
+    color:$color-white;
+    background-color: $color-black;
+
+    .desktopgrid{
+      @include breakpoint(large-min){  display:flex;
+        flex-direction: row;
+        span{
+          max-height:500px;
+          padding:1rem;
+          background-color: $orange;
+          color:$color-black;
+        }}
+    }
+    span{
+      display:flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
+&__columntitle{
+  flex:1;
+  &--title{
+        margin-bottom:10px;
+        font-size: 20px;
+        user-select: none;
+  }
+}
+}
+
+.kanban{
+  &__column{
+    flex: 1;
+    &--title{
+      margin-bottom:10px;
+      font-size: 20px;
+      color:$color-white;
+      user-select: none;
+    }
+    @include breakpoint(small-max-m){
+      margin-bottom: 1rem;
+      max-width:95%;
+    }
+  }
+  &__column:not(:last-child){
+    margin-right:1rem;
+  }
+  &__item{
+    &--input{
+      padding:10px 15px;
+      box-sizing: border-box;
+      background-color: $color-grey;
+      cursor: pointer;
+    }
+  }
+  &__dropzone{
+    height:10px;
+    transition: background 0.15s, height 0.15s;
+  }
+  &__dropzone--active{
+    height:20px;
+    background: rgba(0,0,0,0.25);
+  }
+  &__add-item{
+    width:100%;
+    padding: 10px 0;
+    font-size:16px;
+    color: $color-white;
+    background: $color-black;
+    border:none;
+    cursor:pointer;
+    @include breakpoint(small-max-m){
+      max-width:100px;
+    }
+  }
+}

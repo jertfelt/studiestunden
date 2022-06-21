@@ -1,6 +1,9 @@
 
 <div class="timer">
-  <div class="button-group mode-buttons" id="js-mode-buttons">
+  <div 
+  class="button-group 
+  mode-buttons" 
+  id="buttonsModes">
     <button
       data-mode="pomodoro"
       class="button active mode-button"
@@ -18,7 +21,7 @@
     <button
       data-mode="longBreak"
       class="button mode-button"
-      id="js-long-break"
+      id="longBreakButt"
     >
       Lång paus
     </button>
@@ -28,12 +31,18 @@
     <span class="separator">:</span>
     <span id="js-seconds">00</span>
   </div>
-  <button class="main-button " data-action="start" 
-  id="js-btn">
+  <button class="main-button " 
+  data-action="start" 
+  id="timerButt">
     Start
   </button>
 </div>
 
+</div>
+<div class="hidden">
+  <audio src="sound/backtowork.mp3" data-sound="pomodoro"></audio>
+  <audio src="sound/Radiation Meter.mp3" data-sound="shortBreak"></audio>
+  <audio src="sound/Radiation Meter.mp3" data-sound="longBreak"></audio>
 </div>
 
 <script>
@@ -45,11 +54,42 @@ const timer = {
   sessions: 0,
 };
 
+const buttSound = new Audio('sound/button-sound.mp3');
+const mainButt = document.getElementById("timerButt");
+const modeButtons = document.querySelector("#buttonsModes");
+
+
 let interval;
 
-const mainButton = document.getElementById('js-btn');
-mainButton.addEventListener('click', () => {
-  const { action } = mainButton.dataset;
+
+const switchMode = (mode) => {
+  timer.mode = mode;
+  timer.remainingTime = {
+    total: timer[mode] * 60,
+    minutes: timer[mode],
+    seconds: 0,
+  };
+
+  document
+    .querySelectorAll('button[data-mode]')
+    .forEach(e => e.classList.remove('active'));
+  document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
+  
+  updateClock();
+}
+
+const handleMode = (event) => {
+  const { mode } = event.target.dataset;
+  if (!mode) return;
+  switchMode(mode);
+  stopTimer();
+}
+
+modeButtons.addEventListener('click', handleMode);
+
+mainButt.addEventListener('click', () => {
+  buttSound.play();
+  const { action } = mainButt.dataset;
   if (action === 'start') {
     startTimer();
   } else {
@@ -57,8 +97,6 @@ mainButton.addEventListener('click', () => {
   }
 });
 
-const modeButtons = document.querySelector('#js-mode-buttons');
-modeButtons.addEventListener('click', handleMode);
 
 function getRemainingTime(endTime) {
   const currentTime = Date.parse(new Date());
@@ -81,13 +119,10 @@ function startTimer() {
 
   if (timer.mode === 'pomodoro') timer.sessions++;
 
-  mainButton.dataset.action = 'stop';
-  mainButton.textContent = 'stopp';
- 
-  mainButton.classList.add('active');
-  document.getElementById('js-seconds').classList.add("bluetoggle");
-  document.getElementById('js-minutes').classList.add("bluetoggle");
-  document.querySelector(".separator").classList.add("bluetoggle");
+  mainButt.dataset.action = 'stop';
+  mainButt.textContent = 'stopp';
+  mainButt.classList.add('active');
+
 
   interval = setInterval(function() {
     timer.remainingTime = getRemainingTime(endTime);
@@ -109,6 +144,8 @@ function startTimer() {
           switchMode('pomodoro');
       }
 
+      document.querySelector(`[data-sound="${timer.mode}"]`).play();
+
       startTimer();
     }
   }, 1000);
@@ -117,13 +154,9 @@ function startTimer() {
 function stopTimer() {
   clearInterval(interval);
 
-  mainButton.dataset.action = 'start';
-  mainButton.textContent = 'start';
-  mainButton.classList.remove('active');
-
-  document.getElementById('js-seconds').classList.remove("bluetoggle");
-  document.getElementById('js-minutes').classList.remove("bluetoggle");
-  document.querySelector(".separator").classList.remove("bluetoggle");
+  mainButt.dataset.action = 'start';
+  mainButt.textContent = 'start';
+  mainButt.classList.remove('active');
 }
 
 function updateClock() {
@@ -135,56 +168,16 @@ function updateClock() {
   const sec = document.getElementById('js-seconds');
   min.textContent = minutes;
   sec.textContent = seconds;
+
   const text =
-    timer.mode === 'pomodoro' ? 'A R B E T A!' : 'Ta en paus!';
+    timer.mode === 'pomodoro' ? 'Tillbaka till arbetet' : 'Ta en paus!';
   document.title = `${minutes}:${seconds} — ${text}`;
 
+  
 
 }
-
-function switchMode(mode) {
-  timer.mode = mode;
-  timer.remainingTime = {
-    total: timer[mode] * 60,
-    minutes: timer[mode],
-    seconds: 0,
-  };
-
-  document
-    .querySelectorAll('button[data-mode]')
-    .forEach(e => e.classList.remove('active'));
-  document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
-  document.body.style.backgroundColor = `var(--${mode})`;
-  updateClock();
-}
-
-function handleMode(event) {
-  const { mode } = event.target.dataset;
-
-  if (!mode) return;
-
-  switchMode(mode);
-  stopTimer();
-}
-
+//*-----default
 document.addEventListener('DOMContentLoaded', () => {
   switchMode('pomodoro');
 });
 </script>
-
-<!-- 
-<script>
-  class Timer {
-    constructor(root){
-      root.innerHTML = Timer.getHTML();
-      this.el = {
-        minutes:
-        root.querySelector(".timer__part--minutes"),
-        seconds:
-        root.querySelector(".timer__part--seconds"),
-        control: root.querySelector(".timer__btn--control"),
-      reset: root.querySelector(".timer__btn--reset")
-      };
-      }
-    }
-</script> -->

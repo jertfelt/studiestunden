@@ -1,0 +1,379 @@
+<html lang="sv">
+<%- include("../partials/head.ejs") %> 
+<body>
+  <header>
+  <%- include ("../partials/nav.ejs") %>
+  </header>
+  <main class="taskboard">
+    <div class="taskboard__choose">
+      <h2>Dags att plugga!</h2>
+      <span class="row">
+      <p>Och det görs bäst genom att strukturera! Antingen med kanban-metod, scrum-metod eller en vanlig hederlig "Att göra"-lista. </p>
+      <span class="row taskboard__select">
+        <h3>Välj metod:</h3>
+          <select 
+          name="board" 
+          id="boardoption">
+            <option value="Kanban">Kanban</option>
+            <option value="Scrum">Scrum</option>
+            <option value="Enkel">Enkel</option>
+          </select>
+      </span>
+    </span>
+    </div>
+
+    <div 
+    class="taskboard__kanban kanban">
+      <h2 class="heading bluefont">
+        Kanban-tavla</h2>
+      <p class="subheading">To Do - Doing - Done</p>
+      <div class="taskboard__kanbanboard"
+      id="taskboardKanban">
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading whitefont">
+          To do
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
+
+          </div>
+        </div>
+        <button class="kanban__add-item" type="button">Lägg till</button>
+      </div>
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading whitefont">
+         Doing
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
+
+          </div>
+        </div>
+        <button class="kanban__add-item" type="button">Lägg till</button>
+      </div>
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading whitefont">
+         Done
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
+
+          </div>
+        </div>
+        <button class="kanban__add-item" type="button">Lägg till</button>
+      </div>
+      </div>
+
+    </div>
+    <div class="taskboard__kanban scrum">
+      <h2 class="heading">Scrum</h2>
+      <p class="subheading">Strukturera med sprints</p>
+      <div class="taskboard__scrum"
+      id="taskboardScrum">
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading blackfont">
+          Backlog
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
+
+          </div>
+        </div>
+        <button class="kanban__add-item orangebg" type="button">Lägg till</button>
+      </div>
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading blackfont">
+          To do
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
+
+          </div>
+        </div>
+        <button class="kanban__add-item" type="button">Lägg till</button>
+      </div>
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading blackfont">
+          Doing
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
+
+          </div>
+        </div>
+        <button class="kanban__add-item " type="button">Lägg till</button>
+      </div>
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading blackfont">
+          Done
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
+
+          </div>
+        </div>
+        <button class="kanban__add-item " type="button">Lägg till</button>
+      </div>
+      </div>
+
+    </div>
+
+    <div class="taskboard__kanban enkel">
+      <h2 class="heading">Att göra:</h2>
+      <p class="subheading">En enkel att-göra-lista </p>
+      <div class="taskboard__board
+      taskboard__enkel"
+      id="taskboardEnkel">
+      <div class="kanban__column">
+        <div class="taskboard__columntitle--title subheading whitefont">
+          Att göra:
+        </div>
+        <div class="kanban__items">
+          <div class="kanban__item--input">
+            Test
+          </div>
+          <div class="kanban__dropzone">
+          </div>
+        </div>
+        <button class="kanban__add-item" type="button">Lägg till</button>
+      </div>
+      </div>
+    </div>
+
+    <div class="taskboard__about taskboard__about--kanban kanban">
+      
+      <h2>Om Kanban:</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Simple-kanban-board-.jpg/250px-Simple-kanban-board-.jpg"
+      alt="Wikipedia: Enkel kanban-tavla">
+      <p class="subheading">Kanban är en pågående process.</p>
+      <p>Kanban är en visuell metod för att hantera arbetsflödet på individ-, team- och till och med organisationsnivå. Det uttalas "kahn-bahn", och betyder "visuell signal" eller "kort" på japanska. </p>
+      <p>En Kanban-tavla med fält för "Att göra", "Pågående" och "Klart" är ett bra och enkelt sätt att börja visualisera arbete.</p>
+    </div>
+    
+    <div class="taskboard__about taskboard__about--scrum scrum">
+      <h2>Om Scrum-metoden:</h2>
+      <p class="subheading">Scrum har start-och-slutdatum.</p>
+      <div class="desktopgrid">
+      <div>
+      <img src="https://clickup.com/blog/wp-content/uploads/2020/03/image7-3.gif"
+      alt=" Enkel scrum-tavla">
+      <h3 class="subheading">Det finns fyra kolumner i ett Scrum-projekt:</h3>
+      <p>User stories ‒  i sprintbackloggen, ännu inte uppdelad i några uppgifter</p>
+      <p>Att göra - saker som ännu inte påbörjats än. </p>
+      <p> Pågående: saker som jobbas på just nu</p>
+      <p>Färdiga uppgifter</p>
+      <p>Man kan också lägga till "In Review", en kolumn för där man testar saker, samt "On Hold", saker som dykt upp men som inte görs under den här sprinten. </p>
+      </div>
+      <span>
+      <p>Genomförandet sker i cykler.
+
+        Det innebär att man börjar med den viktigaste och grundläggande funktionaliteten (dvs den funktionalitet som produktägaren prioriterar mest) och bygger sedan på med mer och mer funktionalitet
+        
+        Detta görs i så kallade ”sprintar” ‒ fasta leveranscykler på en till fyra veckor. Under sprinten planerar och utvecklar man nästa steg (eller version) av produkten. 
+      </p>
+    </span>
+    </div>
+    </div>
+  </main>
+  <%- include("../partials/footer.ejs") %>
+  <!-- <script src="../public/javascript/loggedinFunctions/taskboard/api/kanbanAPI.js" type="module"> -->
+  <!-- </script> -->
+  <script>
+    // export default class KanbanAPI {
+    //   static getItems(columnId){
+    //     const kanbanColumn = read().find(column => column.id == columnId);
+    //     if (!column){
+    //       return [];
+    //     }
+    //   }
+    // }
+
+    class KanbanAPI {
+      static getItems(columnId){
+        console.log("this is how we do it " +  columnId)
+      
+        const kanbanColumn = read().find(column => column.id == columnId);
+        console.log("id " + kanbanColumn.id)
+        
+        // if (!column){
+        //   return [];
+        // }
+      }
+    }
+    const read = () => {
+      const json = localStorage.getItem("kanban-data");
+      if (!json){
+        return [{
+          id: 1,
+          items: [],
+        },
+        {
+          id: 2,
+          items: [],
+        },
+        {
+          id: 3,
+          items: [],
+        },
+      ];}
+      return JSON.pase(json);
+    }
+
+    const save = (data) => {
+      localStorage.setItem("kanban-data", JSON.stringify(data));
+    }
+
+    console.log(KanbanAPI.getItems(1))
+
+
+  </script>
+</body>
+</html>
+
+
+
+<!-- <main id="taskboard">
+  <div class="taskboard">
+    <div class="taskboard__wrapper">
+      <div class="taskboard__content--main">
+        <div class="taskboard__header
+        taskboard__nav">
+        <div id="taskboardName"
+        class="taskboard__header--butt
+        taskboard__name"
+        href="#">
+        <h1 class="taskboard__header--butttxt taskboard__name--editable" 
+        dir="auto">
+        </h1>
+        <input class=""
+        aria-label=""
+        spellcheck="false"
+        dir="auto"
+        maxlength="300"
+        value="">
+        </div> 
+      </div>
+      <span class="taskboard__header--divider"></span>
+      <div class="taskboard__header--user">
+        <p class="taskboard__username">
+
+        </p>
+        <a class="taskboard__user">
+          <img class="taskboard__user--avatar"
+          src=""
+          alt=""
+          title=""
+          width="30"
+          height="30">
+        </a>
+      </div>
+      <span class="taskboard__header--divider"></span>
+      <div class="taskboard__header--commands">
+        <span class="taskboard__search">
+          <p>Sök:</p>
+          <span>
+            <input class="searchfield"
+            type="text"
+            placeholder="Sök på något här"
+            aria-placeholder="Sök.."
+            value="">
+          </span>
+
+          </div>
+        </span>
+      </div>
+      <div class="taskboard__canvas">
+        <div id="taskboardCanvas"
+        class="taskboard__canvas--dektop"
+        dragscrollenabled="true">
+        <div class="taskboard__desktop--listwrap taskboard__list">
+          <div class="tasklist tasklist__content">
+            <div class="tasklist__header">
+              <div class="tasklist__header--target ">
+              </div>
+              <h2 class="tasklist__editing"
+              dir="auto">
+              </h2>
+              <textarea class="tasklist__header--name edited" 
+              aria-label=""
+              spellcheck="false"
+              dir="auto"
+              maxlength="200"
+              data-autosize="true"
+              style="overflow: hidden; 
+              overflow-wrap: break-word; 
+              height:28px">
+              </textarea>
+            </div>
+            <div class="tasklist__cards">
+              <a class="tasklist__cards--card">
+                <span class="tasklist__edit--listitem">
+                </span>
+                <div class="tasklist__card--details">
+                  <div class="tasklist__card--label">
+                    <span class="card__label
+                    labelcolor--orange"
+                    title="">
+                  </span>
+                  </div>
+                <div class="tasklist__card--title">
+                <span class="cardID hidden"></span>
+
+                </div>
+                </div>
+              </a>
+            </div>
+            <div class="tasklist__createTask--field"
+            >
+            <textarea class="tasklist__newtask"
+            dir="auto"
+            placeholder="Lägg till en uppgift"
+            data-autosize="true"
+            style="overflow:hidden;
+            overflow-wrap: break-word; 
+            resize: none;
+            height:60px;">
+            </textarea>
+            </div>
+            <div class="tasklist__createcard">
+              <a 
+              id="createTaskButt"
+              class="tasklist__createcard--button"
+              href="#">
+                <span class="icon">+</span>
+                <span>Lägg till uppgift:</span>
+              </a>
+            </div>
+          </div>
+        </div> 
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+</main> -->

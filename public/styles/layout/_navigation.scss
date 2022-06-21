@@ -6,23 +6,31 @@ nav {
   justify-content: space-between;
   padding-right:1rem;
   font-family: $primary-font;
+
   a {
     font-weight: bold;
     text-decoration: none;
-    color: blue;
+    color: $blue;
     letter-spacing: 0.1rem;
+  }
+  a:hover{
+    color: $color-white;
   }
   li {
     list-style: none;
   }
-  a:hover{
-    color:$orange;
-  }
+  
   @include breakpoint(xxsmall-max){
     display:flex;
     flex-direction: column;
     max-width: 100%;
   }
+}
+.siteName {
+  padding-left:2rem;
+  @include breakpoint(xxsmall-max){
+    padding:0;
+    }
 }
 
 .siteNav{
@@ -36,19 +44,25 @@ nav {
     text-align: center;
     
   }
-  @include breakpoint(small-max-m){
+  @include breakpoint(medium-tablet-max){
   padding:0;
   display:none;
   }
 }
 
 .siteNavMobile{
-  @include breakpoint(small-max){
+  @include breakpoint(medium-tablet-min){
     display:none;
   }
   padding:0;
   width:100%;
   text-align: center;
+  @include breakpoint(xxsmall-max){
+    display:flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin-bottom:-3rem;
+  }
 }
 
 .navMobile{
@@ -62,16 +76,21 @@ nav {
 .dropdownmenu{
   height: 80px;
   z-index: 90;
-  background-color: $color-white;
   width:100%;
   padding:2rem;
   margin-top:3rem;
+
+  @include breakpoint(xxsmall-max){
+    background-color: $color-grey;
+    z-index:98;
+  }
+
   &--options{
     display:flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    background-color: $color-white;
+    color: $blue;
     width:100%;
     margin-top:2rem;
   }

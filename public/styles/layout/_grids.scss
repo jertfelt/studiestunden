@@ -1,11 +1,11 @@
-.grid{
-  &__homepage{
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    gap: 1rem;
-  }
-  @include breakpoint(xsmall-max){
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+// .grid{
+//   &__homepage{
+//     max-width: 1200px;
+//     margin: 0 auto;
+//     display: grid;
+//     gap: 1rem;
+//   }
+//   @include breakpoint(xsmall-max){
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+// }

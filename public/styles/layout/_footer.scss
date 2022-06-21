@@ -36,6 +36,7 @@ footer{
   line-height:0.4rem;
   margin-bottom:1rem;
   }
+  
   &__content{
   display:flex;
   flex-direction: row;
@@ -46,4 +47,10 @@ footer{
   padding-left:4rem;
   text-align: center;
   padding-bottom:2rem;
+  @include breakpoint(xxsmall-max){
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  justify-content: space-between;
+  }
 }}
