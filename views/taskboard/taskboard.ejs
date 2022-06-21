@@ -1,12 +1,9 @@
 <html lang="sv">
 <%- include("../partials/head.ejs") %> 
-
 <body>
   <header>
   <%- include ("../partials/nav.ejs") %>
   </header>
-
-
   <main class="taskboard">
     <div class="taskboard__choose">
       <h2>Dags att plugga!</h2>
@@ -199,21 +196,31 @@
     </div>
     </div>
   </main>
-
-
-
   <%- include("../partials/footer.ejs") %>
+  <!-- <script src="../public/javascript/loggedinFunctions/taskboard/api/kanbanAPI.js" type="module"> -->
+  <!-- </script> -->
   <script>
-    //* local storage
-    export default class KanbanAPI {
+    // export default class KanbanAPI {
+    //   static getItems(columnId){
+    //     const kanbanColumn = read().find(column => column.id == columnId);
+    //     if (!column){
+    //       return [];
+    //     }
+    //   }
+    // }
+
+    class KanbanAPI {
       static getItems(columnId){
+        console.log("this is how we do it " +  columnId)
+      
         const kanbanColumn = read().find(column => column.id == columnId);
-        if (!column){
-          return [];
-        }
+        console.log("id " + kanbanColumn.id)
+        
+        // if (!column){
+        //   return [];
+        // }
       }
     }
-
     const read = () => {
       const json = localStorage.getItem("kanban-data");
       if (!json){
@@ -236,6 +243,10 @@
     const save = (data) => {
       localStorage.setItem("kanban-data", JSON.stringify(data));
     }
+
+    console.log(KanbanAPI.getItems(1))
+
+
   </script>
 </body>
 </html>
@@ -255,7 +266,7 @@
         <h1 class="taskboard__header--butttxt taskboard__name--editable" 
         dir="auto">
         </h1>
-        <!-- <input class=""
+        <input class=""
         aria-label=""
         spellcheck="false"
         dir="auto"
@@ -327,7 +338,7 @@
                   </span>
                   </div>
                 <div class="tasklist__card--title">
-                 <span class="cardID hidden"></span>
+                <span class="cardID hidden"></span>
 
                 </div>
                 </div>
