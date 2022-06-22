@@ -31,10 +31,30 @@ class KanbanAPI {
 				}
 			}
 		})();
+    if (!item) {
+			throw new Error("Item not found.");
+		}
+    item.content = newProps.content === undefined ? item.content : newProps.content;
+    	// Update column and position
+		if (
+			newProps.columnId !== undefined
+			&& newProps.position !== undefined
+		) {
+			const targetColumn = data.find(column => column.id == newProps.columnId);
+
+			if (!targetColumn) {
+				throw new Error("Target column not found.");
+			}
+
+			currentColumn.items.splice(currentColumn.items.indexOf(item), 1);
+		
+			targetColumn.items.splice(newProps.position, 0, item);
+		}
+
+		save(data);
   }
 
 }
-const Kanban = new KanbanAPI();
 
 
 const save = (data) => {
@@ -60,3 +80,5 @@ const read = () => {
   return JSON.pase(json);
 }
 
+const KanbanBoard = new KanbanAPI();
+console.log(KanbanAPI)
