@@ -197,57 +197,59 @@
     </div>
   </main>
   <%- include("../partials/footer.ejs") %>
-  <!-- <script src="../public/javascript/loggedinFunctions/taskboard/api/kanbanAPI.js" type="module"> -->
-  <!-- </script> -->
-  <script>
-    // export default class KanbanAPI {
-    //   static getItems(columnId){
-    //     const kanbanColumn = read().find(column => column.id == columnId);
-    //     if (!column){
-    //       return [];
-    //     }
-    //   }
-    // }
-
-    class KanbanAPI {
-      static getItems(columnId){
-        console.log("this is how we do it " +  columnId)
-      
-        const kanbanColumn = read().find(column => column.id == columnId);
-        console.log("id " + kanbanColumn.id)
-        
-        // if (!column){
-        //   return [];
-        // }
-      }
-    }
-    const read = () => {
-      const json = localStorage.getItem("kanban-data");
-      if (!json){
-        return [{
-          id: 1,
-          items: [],
-        },
-        {
-          id: 2,
-          items: [],
-        },
-        {
-          id: 3,
-          items: [],
-        },
-      ];}
-      return JSON.pase(json);
-    }
-
-    const save = (data) => {
-      localStorage.setItem("kanban-data", JSON.stringify(data));
-    }
-
-    console.log(KanbanAPI.getItems(1))
-
+  <script src="../javascript/loggedinFunctions/taskboard/api/kanbanAPI.js" type="module">    
 
   </script>
+
+  <!-- <script>
+   export default class KanbanAPI {
+   static getItems(columnId){
+   const kanbanColumn = read().find(column => column.id == columnId);
+        if (!column){
+          return [];
+        }
+      }
+    }
+
+  //   class KanbanAPI {
+  //     static getItems(columnId){
+  //       console.log("this is how we do it " +  columnId)
+      
+  //       const kanbanColumn = read().find(column => column.id == columnId);
+  //       console.log("id " + kanbanColumn.id)
+        
+  //       // if (!column){
+  //       //   return [];
+  //       // }
+  //     }
+  //   }
+  //   const read = () => {
+  //     const json = localStorage.getItem("kanban-data");
+  //     if (!json){
+  //       return [{
+  //         id: 1,
+  //         items: [],
+  //       },
+  //       {
+  //         id: 2,
+  //         items: [],
+  //       },
+  //       {
+  //         id: 3,
+  //         items: [],
+  //       },
+  //     ];}
+  //     return JSON.pase(json);
+  //   }
+
+  //   const save = (data) => {
+  //     localStorage.setItem("kanban-data", JSON.stringify(data));
+  //   }
+
+  //   console.log(KanbanAPI.getItems(1))
+
+
+  // </script> -->
 </body>
 </html>
 
