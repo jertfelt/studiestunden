@@ -3,106 +3,102 @@
   <p>Det är viktigt att ta hand om sig själv, och inte stressa upp sig. Här kommer några kom-ihåg-lappar från ACT-terapi.<br> <a href="https://sv.wikipedia.org/wiki/Acceptance_and_commitment_therapy">Läs mer om ACT-terapi här</a></p>
 </div>
 
-<div class="mySlides__padding">
-
-  <div class="mySlides">
-    <img src="img/quote--2.png"
-    alt="Winston Churchill">
-    </div>
-  <div class="mySlides">
-    <img src="img/quote--4.png"
-    alt="Text som handlar om att läka sig själv">
-    </div>
-  <div class="mySlides">
-    <img src="img/quote--5.png"
-    alt="'There are always flowers for those who want to see them.'-Henri Matisse">
-  </div>
-  <div class="mySlides">
-    <img src="img/quote--3.png"
-    alt="Text som handlar om att läka sig själv">
-  </div>
-
-
+<div class="mySlides__padding slideshow-container"
+id="quotesRendered">
+<div class="mySlides fade">
+  <div class="numbertext">1 / 4</div>
 </div>
 
-<div class="mySlides__buttons">
-  <div>
-    <button class="carouselbutton--control" onclick="plusDivs(-1)">❮ Prev</button>
-    <button class="carouselbutton--control" onclick="plusDivs(1)">Nästa ❯</button>
-  </div>
-  <div class="row__hideMobile">
-  <button class="carouselbutton--number" onclick="currentDiv(1)">1</button> 
-  <button class="carouselbutton--number" onclick="currentDiv(2)">2</button> 
-  <button class="carouselbutton--number" onclick="currentDiv(3)">3</button> 
-  <button class="carouselbutton--number" onclick="currentDiv(4)">4</button> 
+<div class="mySlides fade">
+  <div class="numbertext">2 / 4</div>
+ 
 </div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 4</div>
+  
 </div>
+<div class="mySlides fade">
+  <div class="numbertext">4 / 4</div>
+
+
+
+  
+</div>
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+<br>
+
+</div>
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+</div>
+
 
 <script>
 
- //API 
+const apiQuotes ="https://type.fit/api/quotes";
 
-  const apiQuotes ="https://type.fit/api/quotes";
+//slides div (list)
+const slides = document.querySelectorAll(".mySlides");
 
-async function getapi(url)
-{
-  const response = await fetch(url);
-  let data = await response.json();
-  // console.log(data);
-  localStorage.setItem("quotes-data", JSON.stringify(data));
+let getQuotes = async () => {
+  let {data} = await axios.get(apiQuotes, {})
+  renderQuote(data);
+  
 }
 
-getapi(apiQuotes);
+const renderQuote = (data) => {
+  //alla citat
+  let quotes = [];
+  data.forEach(item => {
+  quotes.push(item);
+  })
 
-//*-------fixa en databas med citat istället
+  slides.forEach(slide => {
+    const randomElement = [Math.floor(Math.random() * quotes.length)];
+    // console.log(randomElement, quotes[randomElement].text, "-"+ quotes[randomElement].author)
+    let articleElem = document.createElement("article");
+    articleElem.classList.add("quote");
+    articleElem.innerHTML= `
+    <h3>${randomElement, quotes[randomElement].text}</h3>
+    <h4> – ${quotes[randomElement].author}</h4>`
 
+  slide.appendChild(articleElem);
+  })
+}
+getQuotes();
 
+//slides
 
-// const renderQuote = () => {
-//   const quoteLocal = localStorage.getItem("quotes-data");
-//   console.log(quoteLocal)
-//   console.log(JSON.stringify(quoteLocal))
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
   
-
-//   // let randomQuote = quoteLocal[Math.floor(Math.random()*quoteLocal.length)];
-//   // console.log("random thing" + randomQuote);
-// }
-// renderQuote();
-
-// fetch("https://type.fit/api/quotes")
-//   .then(function(response) {
-//     return response.json();
-//   })
-//   .then(function(data) {
-//     console.log(data);
-//   });
-
-
-  const showDivs = (n) => {
-    let i;
-    let x = document.getElementsByClassName("mySlides");
-    let  dots = document.getElementsByClassName("carouselbutton--number");
-    if (n > x.length) {slideIndex = 1}    
-    if (n < 1) {slideIndex = x.length}
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";  
-    }
-    x[slideIndex-1].style.display = "block";  
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
   }
-
-    //slide
-    const slideIndex = 1;
-  showDivs(slideIndex);
-  
-  const plusDivs = (n) => {
-    showDivs(slideIndex += n);
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
   }
-  
-  const currentDiv = (n) => {
-    showDivs(slideIndex = n);
-  }
-  
-
-
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
   </script>
   
