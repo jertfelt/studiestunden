@@ -1,11 +1,21 @@
 const express = require('express');
-// express app
+const dotenv = require("dotenv").config();
 const app = express();
 const _ = require("lodash");
+const mongoose = require("mongoose");
+
+const USER = process.env.DB_USER;
+const PASS = process.env.DB_PASSWORD;
+const port = process.env.PORT;
 
 
-// listen for requests
-app.listen(3000);
+const dbURI = "mongodb+srv://"+USER+":"+PASS+"@studiestunden.v4y2zyx.mongodb.net/?retryWrites=true&w=majority";
+
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
+.then((result) =>
+app.listen(port))
+.catch((error) => console.log("-------ERROR CONNECTING " + error))
+
 
 // register view engine
 app.set('view engine', 'ejs');
