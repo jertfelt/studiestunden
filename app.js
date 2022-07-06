@@ -1,9 +1,17 @@
 const express = require('express');
 const dotenv = require("dotenv").config();
 const app = express();
+const path = require("path");
+const bodyParser = require("body-parser");
+const fs = require("fs");
+const multer = require("multer");
 const _ = require("lodash");
 const mongoose = require("mongoose");
+const User = require("./models/users.js");
 
+app.use(bodyParser.urlencoded({extended:true}));
+
+//mongoose connection:
 const USER = process.env.DB_USER;
 const PASS = process.env.DB_PASSWORD;
 const port = process.env.PORT;
@@ -23,6 +31,53 @@ app.set('view engine', 'ejs');
 // middleware & static files
 app.use(express.static('public'));
 
+const storage = multer.diskStorage({destination: function(req, fule,cb){ cb(null, "uploads")},
+filename: function(req, file,cb){cb(null, file.fieldname + "-" + Date.now())}
+})
+
+const uploadimg = multer({storage: storage});
+
+app.post("/users-register", uploadimg.single("Profile"),(req, res) => {
+
+
+
+  //profilepic
+  let profileimg = fs.readFileSync(req.file.path);
+  let encodedImg = profileimg.toString("base64");
+  let finalImg = {
+      contentType: req.file.mimetype,
+      image: new Buffer(encodedImg, "base64")
+  }
+
+  const newUser = new User(request.body, finalImg, function (err,result){
+    if(err){
+      console.log(err);
+    }else{
+      console.log(result.profileimg.Buffer);
+      console.log("Saved to database");
+      res.contentType(finalImg.contentType);
+      res.send(finalImg.image);
+    } 
+  })
+  newUser.save().then(() => {
+    res.redirect("/");
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  //   //usual suspects:
+  // User.create(finalImg, function (err,result){
+  //   if(err){
+  //     console.log(err);
+  //   }else{
+  //     console.log(result.profileimg.Buffer);
+  //     console.log("Saved to database");
+  //     res.contentType(finalImg.contentType);
+  //     res.send(finalImg.image);
+  //   }
+  // })
+})
+
 
 app.use((req, res, next) => {
   console.log('new request made:');
@@ -32,6 +87,9 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/registrera", (req, res) =>{
+
+})
 
 app.use((req, res, next) => {
   res.locals.path = req.path;

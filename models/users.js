@@ -9,6 +9,14 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  img: {
+    data: Buffer,
+    contentType: String,
+  },
+  email:{
+    type: String,
+    required: true
   }
 }, 
 {timestamps: true}
