@@ -8,12 +8,12 @@ const USER = process.env.DB_USER;
 const PASS = process.env.DB_PASSWORD;
 const port = process.env.PORT;
 
-
 const dbURI = "mongodb+srv://"+USER+":"+PASS+"@studiestunden.v4y2zyx.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
-.then((result) =>
-app.listen(port))
+.then((result) => {app.listen(port)
+  console.log("connected")}
+)
 .catch((error) => console.log("-------ERROR CONNECTING " + error))
 
 
