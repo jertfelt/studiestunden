@@ -8,18 +8,19 @@
 
 <main class="userdetails__page">
   <div>
-    <h2>Välkommen!</h2>
     <div class="userdetails__info">
 
-      <h2><%= users.username %></h2>
-      <h3>Kontaktuppgifter:</h3>
-      <p>Email: <%= users.email %></p>
+      <h2>Välkommen <%= user.username %> !</h2>
+      <p>Email: <%= user.email %></p>
+      <p>Medlem sedan: <%= user.createdAt %></p>
       <a href="/users/<%=user.id%>/uppdatera">
         Ändra konto</a>
       <a
       class="deleteUser" 
       data-doc="<%= user._id %>">
       Avregistrera</a>
+    
+     
     </div>
   </div>
 </main>

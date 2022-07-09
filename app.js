@@ -5,8 +5,9 @@ const dotenv = require("dotenv").config();
 const app = express();
 const _ = require("lodash");
 const mongoose = require("mongoose");
-const User = require("./models/users");
+const Users = require("./models/users");
 const morgan = require("morgan");
+const { response } = require('express');
 
 
 // register view engine
@@ -15,7 +16,6 @@ app.set('view engine', 'ejs');
 // middleware & static files
 app.use(express.static('public'));
 app.use(express.urlencoded({extended:true}));
-app.use(morgan('dev'));
 app.use((req, res, next) => {
   res.locals.path = req.path;
   next();
@@ -45,11 +45,11 @@ app.get('/', (req, res) => {
 
 app.post("/users", (req, res) => {  
   // console.log(req.body)
-  const user = new User(req.body);
+  const user = new Users(req.body);
   user.save()
   .then((result) => {
     console.log("resultatet är här: " + result)
-    res.redirect("/medlemmar");
+    res.redirect("/medlem");
   })
   .catch((err) => {
     console.log(err)
@@ -57,14 +57,23 @@ app.post("/users", (req, res) => {
 })
 
 //!testing
-app.get("/medlemmar", (req, res) => {
-  User.find().then(result =>{
-    console.log("THIS IS ALL THE RESULTS:" + result)
-    res.render("../views/partials/test"), {user: result, title: "Alla medlemmar"}
+app.get("/medlem/:id", (req, res) => {
+  const id = req.params.id;
+  Users.findById(id).then(result =>{
+    console.log(result)
+    res.render("../views/userInterface/details", {user: result, title: "Din info"})
+  }).catch(error => {
+    console.log(error)
   })
-  .catch(err => 
-    console.log(err)
-  )
+
+
+  // User.find().then(result =>{
+  //   console.log("THIS IS ALL THE RESULTS:" + result)
+  //   res.render("../views/partials/test"), {user: result, title: "Alla medlemmar"}
+  // })
+  // .catch(err => 
+  //   console.log(err)
+  // )
 })
 
 //?---------REGISTER

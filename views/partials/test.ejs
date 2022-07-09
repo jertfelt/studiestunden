@@ -9,20 +9,7 @@
     <h2>Våra medlemmar</h2>
     
     <div class="medlem__grid">
-    <% if (user.length > 0) { %>
-    <%user.forEach(user => { %>
-      <div class="medlem__grid--kort">
-        <a class="medlem--link" 
-        href="./medlemmar/<%= user._id %>">
-          <h3 class="medlem namn"> <%= user.username %></h3>
-         
-        </a>
-      </div>
-    <% }) %>
-    </div>
-    <% } else { %>
-    <p>Vi har inga medlemmar :( </p>
-    <% } %>
+
   
 </main>
 <%- include("../partials/footer.ejs") %>
