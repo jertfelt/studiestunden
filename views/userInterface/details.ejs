@@ -8,43 +8,38 @@
 
 <main class="userdetails__page">
   <div>
-    <h2>Dina detaljer:</h2>
+    <h2>Välkommen!</h2>
     <div class="userdetails__info">
-      <h2><%= user.username %></h2>
-      <img src="<%= user.profilepic %>"
-      alt="profilbild">
+
+      <h2><%= users.username %></h2>
       <h3>Kontaktuppgifter:</h3>
-      <p>Email: <%= user.email %></p>
-      <a href="/medlem/<%=user.id%>/uppdatera">
+      <p>Email: <%= users.email %></p>
+      <a href="/users/<%=user.id%>/uppdatera">
         Ändra konto</a>
       <a
       class="deleteUser" 
       data-doc="<%= user._id %>">
-      Ta bort ditt konto</a>
+      Avregistrera</a>
     </div>
   </div>
-
-
 </main>
-
-  <%- include("../partials/footer.ejs") %>
-  <script>
+<%- include("../partials/footer.ejs") %>
+<script>
     const deleteButt = document.querySelector('a.delete');
     deleteButt.addEventListener('click', (e) => {
       //delete request till specifik endpoint:
-      const endpoint = `/medlem/${deleteButt.dataset.doc}`;
-      //fetch API:
+      const endpoint = `/users/${deleteButt.dataset.doc}`;
       fetch(endpoint, {
         method: 'DELETE',
       })
-      //använda metod på json så det blir ett js-objekt
       .then(response => response.json())
       .then(data => window.location.href = data.redirect)
       .catch(err => console.log(err));
     });
-    
-  
-  </script>
+</script>
 
 </body>
 </html>
+
+  <!-- <img src=" %= user.profilepic %>"
+      alt="profilbild"> -->
