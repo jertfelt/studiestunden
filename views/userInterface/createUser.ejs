@@ -10,8 +10,9 @@
   <section class="form__section">
     <div class="form__section--txt">
       <h2>Registrera dig här:</h2>
-      <form action="/users-register" 
+      <form action="/register" 
       method="POST"
+      enctype="multipart/form-data"
       class="form__register">
         <span>
           <label for="name">
@@ -37,7 +38,7 @@
         name="password" 
         required>
         </span>
-        <span class="row profilbildspan">
+        <!-- <span class="row profilbildspan">
           <label for="getFile"
           >
             Välj profilbild 
@@ -47,7 +48,7 @@
           onclick="document.getElementById('getFile').click()">Ladda upp bild</button>
           <input type='file' 
           id="getFile" >
-        </span>
+        </span> -->
 
         <button 
         class="txtbuttonHover largeButt">
