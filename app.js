@@ -59,12 +59,12 @@ app.post("/users", (req, res) => {
 //!testing
 app.get("/medlemmar", (req, res) => {
   User.find().then(result =>{
-  // console.log("THIS IS ALL THE RESULTS:" + result)
-  res.render("../views/partials/test"), {user: result, title: "Alla medlemmar"}
-   })
-   .catch(err => {
+    console.log("THIS IS ALL THE RESULTS:" + result)
+    res.render("../views/partials/test"), {user: result, title: "Alla medlemmar"}
+  })
+  .catch(err => 
     console.log(err)
-   })
+  )
 })
 
 //?---------REGISTER
