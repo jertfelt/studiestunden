@@ -49,12 +49,21 @@ app.use(session({
   resave: false
 }))
 
+app.use(cookieParser);
 
 //**-----------------ROUTES----------  */
 
 //?-------HOMEPAGE
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Studiestunden'});
+  session = req.session; 
+  if (session.userid){
+    res.send("Weldome to the world of tomorrow")
+    
+  }
+  else{
+    res.render('index', { title: 'Studiestunden'});
+  }
+  
 });
 
 
