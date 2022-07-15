@@ -49,7 +49,7 @@ app.post("/users", (req, res) => {
   user.save()
   .then((result) => {
     console.log("resultatet är här: " + result)
-    res.redirect("/medlem");
+    res.redirect("/");
   })
   .catch((err) => {
     console.log(err)
@@ -77,7 +77,7 @@ app.get("/medlem/:id", (req, res) => {
 })
 
 //?---------REGISTER
-app.get("/skapa", (req, res) => {
+app.get("/registrera", (req, res) => {
   res.render("../views/userInterface/createUser",{ title: "Registrera dig!"})
 })
 

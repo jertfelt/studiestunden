@@ -27,7 +27,7 @@
       <a href="/login">
       Logga in</a></li>
     <li class="notloggedin txtbuttonHover">
-      <a href="/skapa">
+      <a href="/registrera">
       Registrera</a></li>
     <li class="loggedin txtbuttonHover logoutbutton hidden"><a href="/">
       Logga ut</a>
@@ -51,7 +51,7 @@
       <a href="/login">
       Logga in</a></li>
     <li class="notloggedin txtbuttonHover">
-      <a href="/skapa">
+      <a href="/registrera">
       Registrera</a></li>
     <li class="loggedin txtbuttonHover logoutbutton hidden">
       <a href="/">
@@ -62,8 +62,11 @@
   </ul>
 </nav>
 
+<script src="../javascript/loggedinFunctions/user/loginLogout.js" type="module">   
+</script>
+
 <script>
-  
+
 //navigation mobile
 let navVisibleWhenMobile = document.getElementById("siteNavMobile")
 let openNavMobile = document.getElementById("openDropdownNav");
@@ -85,26 +88,16 @@ closeNavMobile.addEventListener("click", () => {
   openNavMobile.classList.remove("hidden");
 })
 
-//*logged in 
-let notLoggedInOptions = document.querySelectorAll(".notloggedin");
-let loggedInOptions = document.querySelectorAll(".loggedin");
+// //*logged in 
+// let notLoggedInOptions = document.querySelectorAll(".notloggedin");
+// let loggedInOptions = document.querySelectorAll(".loggedin");
 
-//logout function button
-let logoutButtons = document.querySelectorAll(".logoutbutton");
-logoutButtons.forEach(element => {
-  element.addEventListener("click", () => {
-    console.log("clicked")
-  })
-});
-
-
-loggedInOptions.forEach(element => {
-  if(element.classList.contains("hidden")){
-    console.log(element + " =hidden")
-  }
-  else {
-    console.log(element + " = not hidden")
-  }
-})
+// //logout function button
+// let logoutButtons = document.querySelectorAll(".logoutbutton");
+// logoutButtons.forEach(element => {
+//   element.addEventListener("click", () => {
+//     console.log("clicked")
+//   })
+// });
 
 </script>

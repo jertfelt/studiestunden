@@ -4,7 +4,10 @@
   <header>
   <%- include ("../partials/nav.ejs") %>
   </header>
-  <main class="taskboard">
+  <main class="taskboard" 
+  id="taskboardMain">
+  <div id="taskboard" 
+  class="taskboard hidden">
     <div class="taskboard__choose">
       <h2>Dags att plugga!</h2>
       <span class="row">
@@ -195,10 +198,47 @@
     </span>
     </div>
     </div>
+  </div>
   </main>
   <%- include("../partials/footer.ejs") %>
   
- <script src="../javascript/loggedinFunctions/taskboard/api/kanbanAPI.js" type="module">    
+ <script src="../javascript/loggedinFunctions/taskboard/api/kanbanAPI.js" type="module">   
+
+
+const taskboard = document.getElementById("taskboard");
+
+const showTaskboard = () => {
+  if(taskboard.classList.contains("hidden")){
+    taskboard.classList.remove("hidden")
+  }
+  else{
+    taskboard.classList.add("hidden")
+  }
+}
+
+
+
+
+const showTaskboardwhenLogged = async () => {
+  if (sessionStorage.getItem('status') != null)
+  {
+    let loggedIn = true;
+    showTaskboard();
+  }
+else{
+  console.log("not logged in")
+  taskboard.classList.add("hidden")
+  const errorMsg = document.createElement("div");
+    const mainDiv = document.getElementById("taskboardMain")
+    mainDiv.appendChild(errorMsg);
+    errorMsg.innerHTML="hej"
+}
+
+}
+
+showTaskboardwhenLogged();
+
+
   </script> 
 
 
