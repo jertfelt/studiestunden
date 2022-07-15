@@ -50,6 +50,7 @@ app.post("/users", (req, res) => {
   .then((result) => {
     console.log("resultatet är här: " + result)
     res.redirect("/");
+    sessionStorage.setItem('status','loggedIn') 
   })
   .catch((err) => {
     console.log(err)
