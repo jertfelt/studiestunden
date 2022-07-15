@@ -1,5 +1,5 @@
 //**Installations */
-const session = require("express-session")
+const sessions = require("express-session")
 const express = require('express');
 const cookieParser = require("cookie-parser")
 const dotenv = require("dotenv").config();
@@ -8,7 +8,7 @@ const _ = require("lodash");
 const mongoose = require("mongoose");
 const Users = require("./models/users");
 const morgan = require("morgan");
-const { response } = require('express');
+
 
 
 // register view engine
@@ -40,7 +40,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
 //**--------Express session */
 const dayTime = 1000 * 60 * 60 * 24;
 
-app.use(session({
+app.use(sessions({
   secret: SECRET,
   saveUninitialized: true,
   cookie: { 
@@ -51,20 +51,27 @@ app.use(session({
 
 app.use(cookieParser);
 
+const myusername = 'user1'
+const mypassword = 'mypassword'
+let session;
+
 //**-----------------ROUTES----------  */
 
 //?-------HOMEPAGE
 app.get('/', (req, res) => {
-  session = req.session; 
-  if (session.userid){
-    res.send("Weldome to the world of tomorrow")
-    
-  }
-  else{
-    res.render('index', { title: 'Studiestunden'});
-  }
+  session = req.session;
+  if (session.userid){console.log("logged in")}
+  res.render('index', { title: 'Studiestunden'});
   
 });
+
+app.post("/users", (req, res) => {
+  if(req.body.usernameLogin == myusername){
+    session = req.session;
+    session.userid=req.body.usernameLogin;
+        console.log(req.session)
+  }
+})
 
 
 app.post("/users", (req, res) => {  

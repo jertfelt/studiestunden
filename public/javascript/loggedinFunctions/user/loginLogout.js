@@ -1,15 +1,18 @@
 console.log("connected javascript module----loginlogout.js")
 
-//check if user is logged in:
-let loggedIn = false; 
-if (sessionStorage.getItem('status') != null)
-  {
-    let loggedIn = true;
-    console.log("user is logged in")
-  }
-else{
-  console.log("not logged in")
-}
+
+
+
+// //check if user is logged in:
+// let loggedIn = false; 
+// if (sessionStorage.getItem('status') != null)
+//   {
+//     let loggedIn = true;
+//     console.log("user is logged in")
+//   }
+// else{
+//   console.log("not logged in")
+// }
   
 
 
@@ -59,13 +62,13 @@ const showDefaultMenu = () => {
 
 }
 
-const showLoggedInMenu = async () => {
-  if(sessionStorage.getItem('status') != null){
-    showUserMenu();
-  }
-  else {
-    showDefaultMenu();
-  }
-}
+// const showLoggedInMenu = async () => {
+//   if(sessionStorage.getItem('status') != null){
+//     showUserMenu();
+//   }
+//   else {
+//     showDefaultMenu();
+//   }
+// }
 
-showLoggedInMenu();
+// showLoggedInMenu();
