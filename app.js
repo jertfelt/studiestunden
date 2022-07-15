@@ -59,19 +59,9 @@ let session;
 
 //?-------HOMEPAGE
 app.get('/', (req, res) => {
-  session = req.session;
-  if (session.userid){console.log("logged in")}
   res.render('index', { title: 'Studiestunden'});
-  
 });
 
-app.post("/users", (req, res) => {
-  if(req.body.usernameLogin == myusername){
-    session = req.session;
-    session.userid=req.body.usernameLogin;
-        console.log(req.session)
-  }
-})
 
 
 app.post("/users", (req, res) => {  
@@ -88,7 +78,15 @@ app.post("/users", (req, res) => {
   })
 })
 
-//!testing
+app.post("/users", (req, res) => {
+  if(req.body.usernameLogin == myusername){
+    session = req.session;
+    session.userid=req.body.usernameLogin;
+        console.log(req.session)
+  }
+})
+
+
 app.get("/medlem/:id", (req, res) => {
   const id = req.params.id;
   Users.findById(id).then(result =>{
@@ -144,9 +142,6 @@ app.get("/taskboard", (req, res) => {
 app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
 });
-
-
-
 
 
 
