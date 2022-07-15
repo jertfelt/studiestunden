@@ -44,8 +44,7 @@ app.use(sessions({
   secret: SECRET,
   saveUninitialized: true,
   cookie: { 
-    maxAge: dayTime,
-    secure: true},
+    maxAge: dayTime,},
   resave: false
 }))
 
@@ -129,8 +128,9 @@ app.get("/detaljer", (req, res) => {
 
 //?---------LOGIN
 app.get("/login", (req, res) => {
-  res.render("../views/userInterface/login.ejs",{ title: "Logga in"})
-})
+  res.render("../views/userInterface/login.ejs",{ title: "Logga in"}).catch(error => {
+    console.log(error)
+})})
 
 //?---------LOGGED IN TASKBOARD
 app.get("/taskboard", (req, res) => {
