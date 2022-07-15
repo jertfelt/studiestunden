@@ -1,6 +1,7 @@
 //**Installations */
-
+const session = require("express-session")
 const express = require('express');
+const cookieParser = require("cookie-parser")
 const dotenv = require("dotenv").config();
 const app = express();
 const _ = require("lodash");
@@ -15,6 +16,7 @@ app.set('view engine', 'ejs');
 
 // middleware & static files
 app.use(express.static('public'));
+app.use(express.json())
 app.use(express.urlencoded({extended:true}));
 app.use((req, res, next) => {
   res.locals.path = req.path;
@@ -25,6 +27,7 @@ app.use((req, res, next) => {
 const USER = process.env.DB_USER;
 const PASS = process.env.DB_PASSWORD;
 const port = process.env.PORT;
+const SECRET = process.env.SECRET;
 
 const dbURI = "mongodb+srv://"+USER+":"+PASS+"@studiestunden.v4y2zyx.mongodb.net/?retryWrites=true&w=majority";
 
@@ -33,6 +36,18 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
   console.log("connected to database")}
 )
 .catch((error) => console.log("-------ERROR CONNECTING " + error))
+
+//**--------Express session */
+const dayTime = 1000 * 60 * 60 * 24;
+
+app.use(session({
+  secret: SECRET,
+  saveUninitialized: true,
+  cookie: { 
+    maxAge: dayTime,
+    secure: true},
+  resave: false
+}))
 
 
 //**-----------------ROUTES----------  */
