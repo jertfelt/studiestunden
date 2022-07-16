@@ -1,5 +1,4 @@
 //**Installations */
-const session = require("express-session")
 const express = require('express');
 const cookieParser = require("cookie-parser")
 const dotenv = require("dotenv").config();
@@ -9,25 +8,32 @@ const mongoose = require("mongoose");
 const Users = require("./models/users");
 const morgan = require("morgan");
 const { response } = require('express');
-
+const sessions = require("express-session");
 
 // register view engine
 app.set('view engine', 'ejs');
 
-// middleware & static files
-app.use(express.static('public'));
+//parsing data
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
+//cookies middleware:
+app.use(cookieParser());
+
+// public file
+app.use(express.static('public'));
+
 app.use((req, res, next) => {
   res.locals.path = req.path;
   next();
 });
 
-//**-------mongoose connection:--------*/
+//*---passwords*/
 const USER = process.env.DB_USER;
 const PASS = process.env.DB_PASSWORD;
 const port = process.env.PORT;
 const SECRET = process.env.SECRET;
+
+//**-------Mongoose connection:--------*/
 
 const dbURI = "mongodb+srv://"+USER+":"+PASS+"@studiestunden.v4y2zyx.mongodb.net/?retryWrites=true&w=majority";
 
@@ -38,13 +44,11 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
 .catch((error) => console.log("-------ERROR CONNECTING " + error))
 
 //**--------Express session */
-const dayTime = 1000 * 60 * 60 * 24;
-
-app.use(session({
+app.use(sessions({
   secret: SECRET,
   saveUninitialized: true,
   cookie: { 
-    maxAge: dayTime,
+    maxAge: 1000 * 60 * 60 * 24,
     secure: true},
   resave: false
 }))
