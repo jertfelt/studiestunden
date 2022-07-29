@@ -19,27 +19,26 @@
     <span>
       <label 
       for="username">
-        Email:</label>
+        Användarnamn/Email:</label>
       <input 
-      name="username"
+      name="usernameLogin"
       type="text" 
       id="usernameLogin"
       required>
     </span>
     <span>
       <label 
-      for="password">
+      for="loginpass">
         Lösenord:</label>
       <input 
-      name="password"
+      name="passwordLogin"
       type="password" 
       id="passwordLogin"
       required>
     </span>
-      <input type="submit"
-      value="Logga in"
+      <button 
       class="txtbuttonHover largeButt">
-      </input>
+      Logga in</button>
     </form>
   </div>
   </section>
@@ -48,9 +47,7 @@
 </aside>
   <%- include("../partials/footer.ejs") %>
 
-  <script src="../javascript/loggedinFunctions/user/loginLogout.js" type="module"> 
-  </script>
-  <script src="../javascript/loggedinFunctions/user/ifLoggedin.js" type="module">       
+  <script src="../javascript/loggedinFunctions/user/loginLogout.js" type="module">    
   </script> 
 </body>
 </html>
