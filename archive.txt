@@ -1,0 +1,78 @@
+// //?-------HOMEPAGE(OLD)
+// app.get('/', (req, res) => {
+//   res.render('index', { title: 'Studiestunden'});
+// });
+
+
+const sessions = require("express-session");
+
+EXPRESS SESSION :
+//**--------Express session */
+app.use(sessions({
+  secret: SECRET,
+  saveUninitialized: true,
+  cookie: { 
+    maxAge: 1000 * 60 * 60 * 24,
+    secure: true},
+  resave: false
+}))
+
+//username and password
+const myusername = 'user1'
+const mypassword = 'mypassword'
+
+// a variable to save a session
+let session;
+
+//! Earlier code from trying to use express session, do not use:
+// const showLoggedInMenu = async () => {
+//   if(sessionStorage.getItem('status') != null){
+//     showUserMenu();
+//   }
+//   else {
+//     showDefaultMenu();
+//   }
+// }
+
+// showLoggedInMenu();
+
+
+
+// //?login form
+// app.post("/user", (req, res) => {
+//   if(req.body.username == myusername && req.body.password == mypassword){
+//     session = req.session;
+//     session.userid=req.body.username;
+//     console.log(req.session);
+//     res.send("Hej och välkommen")
+//   }
+//   else {
+//     res.send("Fel lösenord eller användarnamn, var vänlig försök igen")
+//   }
+// })
+
+
+
+//!testing
+// app.post("/users", (req, res) => {
+//   if(req.body.usernameLogin == myusername){
+//     session = req.session;
+//     session.userid=req.body.usernameLogin;
+//         console.log(req.session)
+//   }
+// })
+
+
+
+  // User.find().then(result =>{
+  //   console.log("THIS IS ALL THE RESULTS:" + result)
+  //   res.render("../views/partials/test"), {user: result, title: "Alla medlemmar"}
+  // })
+  // .catch(err => 
+  //   console.log(err)
+  // )
+
+
+
+
+  

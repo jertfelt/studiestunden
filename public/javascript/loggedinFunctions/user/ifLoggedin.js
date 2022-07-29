@@ -55,6 +55,7 @@ const checkinguserStatus = async () => {
   }
   }
 
+  checkinguserStatus();
   
 //! Earlier code from trying to use express session, do not use:
 // const showLoggedInMenu = async () => {

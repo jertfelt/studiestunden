@@ -8,7 +8,6 @@ const mongoose = require("mongoose");
 const Users = require("./models/users");
 const morgan = require("morgan");
 const { response } = require('express');
-const sessions = require("express-session");
 
 // register view engine
 app.set('view engine', 'ejs');
@@ -43,30 +42,11 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
 )
 .catch((error) => console.log("-------ERROR CONNECTING " + error))
 
-//**--------Express session */
-app.use(sessions({
-  secret: SECRET,
-  saveUninitialized: true,
-  cookie: { 
-    maxAge: 1000 * 60 * 60 * 24,
-    secure: true},
-  resave: false
-}))
 
-//username and password
-const myusername = 'user1'
-const mypassword = 'mypassword'
-
-// a variable to save a session
-let session;
 
 
 //**-----------------ROUTES----------  */
 
-// //?-------HOMEPAGE(OLD)
-// app.get('/', (req, res) => {
-//   res.render('index', { title: 'Studiestunden'});
-// });
 
 //?-------HOMEPAGE(NEW)
 app.get('/', (req, res) => {
@@ -78,18 +58,6 @@ app.get('/', (req, res) => {
   } 
 });
 
-// //?login form
-// app.post("/user", (req, res) => {
-//   if(req.body.username == myusername && req.body.password == mypassword){
-//     session = req.session;
-//     session.userid=req.body.username;
-//     console.log(req.session);
-//     res.send("Hej och välkommen")
-//   }
-//   else {
-//     res.send("Fel lösenord eller användarnamn, var vänlig försök igen")
-//   }
-// })
 
 
 
@@ -107,15 +75,6 @@ app.post("/users", (req, res) => {
   })
 })
 
-//!testing
-// app.post("/users", (req, res) => {
-//   if(req.body.usernameLogin == myusername){
-//     session = req.session;
-//     session.userid=req.body.usernameLogin;
-//         console.log(req.session)
-//   }
-// })
-
 
 app.get("/medlem/:id", (req, res) => {
   const id = req.params.id;
@@ -126,14 +85,6 @@ app.get("/medlem/:id", (req, res) => {
     console.log(error)
   })
 
-
-  // User.find().then(result =>{
-  //   console.log("THIS IS ALL THE RESULTS:" + result)
-  //   res.render("../views/partials/test"), {user: result, title: "Alla medlemmar"}
-  // })
-  // .catch(err => 
-  //   console.log(err)
-  // )
 })
 
 //?---------REGISTER
@@ -172,59 +123,4 @@ app.get("/taskboard", (req, res) => {
 app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
 });
-
-
-
-//***upload profile pic (in development)
-// const bodyParser = require("body-parser");
-// app.use(bodyParser.urlencoded({extended:true}));
-
-
-// const storage = multer.diskStorage({destination: function(req, fule,cb){ cb(null, "uploads")},
-// filename: function(req, file,cb){cb(null, file.fieldname + "-" + Date.now())}
-// })
-
-// const uploadimg = multer({storage: storage});
-
-
-// app.post("/users-register", uploadimg.single("Profile"),(req, res) => {
-
-//   //profilepic
-//   let profileimg = fs.readFileSync(req.file.path);
-//   let encodedImg = profileimg.toString("base64");
-//   let finalImg = {
-//       contentType: req.file.mimetype,
-//       image: new Buffer(encodedImg, "base64")
-//   }
-
-//   const newUser = new User(request.body, finalImg, function (err,result){
-//     if(err){
-//       console.log(err);
-//     }else{
-//       console.log(result.profileimg.Buffer);
-//       console.log("Saved to database");
-//       res.contentType(finalImg.contentType);
-//       res.send(finalImg.image);
-//     } 
-//   })
-//   newUser.save().then(() => {
-//     res.redirect("/");
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   })
-//   //   //usual suspects:
-//   // User.create(finalImg, function (err,result){
-//   //   if(err){
-//   //     console.log(err);
-//   //   }else{
-//   //     console.log(result.profileimg.Buffer);
-//   //     console.log("Saved to database");
-//   //     res.contentType(finalImg.contentType);
-//   //     res.send(finalImg.image);
-//   //   }
-//   // })
-// })
-
-
 
