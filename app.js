@@ -47,18 +47,10 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
 
 //**-----------------ROUTES----------  */
 
-
-//?-------HOMEPAGE(NEW)
+// //?-------HOMEPAGE(OLD)
 app.get('/', (req, res) => {
-  session=req.session;
-  if(session.userid){
-    res.send("Logga in!")
-  }else{
-    res.render('index', { title: 'Studiestunden'});
-  } 
+  res.render('index', { title: 'Studiestunden'});
 });
-
-
 
 
 app.post("/users", (req, res) => {  
