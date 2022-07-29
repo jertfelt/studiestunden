@@ -1,5 +1,4 @@
 //**Installations */
-const sessions = require("express-session")
 const express = require('express');
 const cookieParser = require("cookie-parser")
 const dotenv = require("dotenv").config();
@@ -8,26 +7,33 @@ const _ = require("lodash");
 const mongoose = require("mongoose");
 const Users = require("./models/users");
 const morgan = require("morgan");
-
-
+const { response } = require('express');
+const sessions = require("express-session");
 
 // register view engine
 app.set('view engine', 'ejs');
 
-// middleware & static files
-app.use(express.static('public'));
+//parsing data
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
+//cookies middleware:
+app.use(cookieParser());
+
+// public file
+app.use(express.static('public'));
+
 app.use((req, res, next) => {
   res.locals.path = req.path;
   next();
 });
 
-//**-------mongoose connection:--------*/
+//*---dotenv:
 const USER = process.env.DB_USER;
 const PASS = process.env.DB_PASSWORD;
 const port = process.env.PORT;
 const SECRET = process.env.SECRET;
+
+//**-------Mongoose connection:--------*/
 
 const dbURI = "mongodb+srv://"+USER+":"+PASS+"@studiestunden.v4y2zyx.mongodb.net/?retryWrites=true&w=majority";
 
@@ -38,28 +44,52 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
 .catch((error) => console.log("-------ERROR CONNECTING " + error))
 
 //**--------Express session */
-const dayTime = 1000 * 60 * 60 * 24;
-
 app.use(sessions({
   secret: SECRET,
   saveUninitialized: true,
   cookie: { 
-    maxAge: dayTime,},
+    maxAge: 1000 * 60 * 60 * 24,
+    secure: true},
   resave: false
 }))
 
-app.use(cookieParser);
-
+//username and password
 const myusername = 'user1'
 const mypassword = 'mypassword'
+
+// a variable to save a session
 let session;
+
 
 //**-----------------ROUTES----------  */
 
-//?-------HOMEPAGE
+// //?-------HOMEPAGE(OLD)
+// app.get('/', (req, res) => {
+//   res.render('index', { title: 'Studiestunden'});
+// });
+
+//?-------HOMEPAGE(NEW)
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Studiestunden'});
+  session=req.session;
+  if(session.userid){
+    res.send("Logga in!")
+  }else{
+    res.render('index', { title: 'Studiestunden'});
+  } 
 });
+
+// //?login form
+// app.post("/user", (req, res) => {
+//   if(req.body.username == myusername && req.body.password == mypassword){
+//     session = req.session;
+//     session.userid=req.body.username;
+//     console.log(req.session);
+//     res.send("Hej och välkommen")
+//   }
+//   else {
+//     res.send("Fel lösenord eller användarnamn, var vänlig försök igen")
+//   }
+// })
 
 
 
@@ -77,13 +107,14 @@ app.post("/users", (req, res) => {
   })
 })
 
-app.post("/users", (req, res) => {
-  if(req.body.usernameLogin == myusername){
-    session = req.session;
-    session.userid=req.body.usernameLogin;
-        console.log(req.session)
-  }
-})
+//!testing
+// app.post("/users", (req, res) => {
+//   if(req.body.usernameLogin == myusername){
+//     session = req.session;
+//     session.userid=req.body.usernameLogin;
+//         console.log(req.session)
+//   }
+// })
 
 
 app.get("/medlem/:id", (req, res) => {
@@ -128,9 +159,8 @@ app.get("/detaljer", (req, res) => {
 
 //?---------LOGIN
 app.get("/login", (req, res) => {
-  res.render("../views/userInterface/login.ejs",{ title: "Logga in"}).catch(error => {
-    console.log(error)
-})})
+  res.render("../views/userInterface/login.ejs",{ title: "Logga in"})
+})
 
 //?---------LOGGED IN TASKBOARD
 app.get("/taskboard", (req, res) => {

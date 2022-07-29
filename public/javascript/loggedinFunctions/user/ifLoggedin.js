@@ -1,49 +1,4 @@
-
-  //assigning variables
-  const loginForm = document.getElementById("loginForm");
-  const loginEmail = document.getElementById("usernameLogin");
-  const loginPassword = document.getElementById("passwordLogin");
-
-  createForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const response = await fetch("/api/login", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: JSON.stringify({
-        email: loginEmail.value,
-        password: loginPassword.value
-      })
-    })
-    .then(() => {
-      window.location.assign("./loggedin")
-    })
-    .catch((error) => {
-      alert("Fel lösenord eller användarnamn!")
-      console.log(error);
-    })
-  })
-
-
-
-
-
-// //check if user is logged in:
-// let loggedIn = false; 
-// if (sessionStorage.getItem('status') != null)
-//   {
-//     let loggedIn = true;
-//     console.log("user is logged in")
-//   }
-// else{
-//   console.log("not logged in")
-// }
-  
-
-
-//*logged in 
+//*--------MENUES AND OPTIONS IF lOGGED IN OR NOT LOGGED IN------------------
 let notLoggedInOptions = document.querySelectorAll(".notloggedin");
 let loggedInOptions = document.querySelectorAll(".loggedin");
 
@@ -54,10 +9,6 @@ logoutButtons.forEach(element => {
     console.log("clicked")
   })
 });
-
-
-
-
 
 const showUserMenu = () => {
   loggedInOptions.forEach(element => {
@@ -71,9 +22,9 @@ const showUserMenu = () => {
     element.classList.add("hidden")
   }
   })
-
 }
 
+//?-------Not logged in menu:
 const showDefaultMenu = () => {
   notLoggedInOptions.forEach(element => {
     if (element.classList.contains("hidden")){
@@ -89,6 +40,23 @@ const showDefaultMenu = () => {
 
 }
 
+
+//*--------CHECK IF LOGGED IN------------------
+
+const checkinguserStatus = async () => {
+  const res = await fetch ("/api/loggedin");
+  const user = await res.json();
+  console.log(user);
+  if(user === "Unauthorized"){
+    showDefaultMenu();
+  }
+  else {
+    showUserMenu();
+  }
+  }
+
+  
+//! Earlier code from trying to use express session, do not use:
 // const showLoggedInMenu = async () => {
 //   if(sessionStorage.getItem('status') != null){
 //     showUserMenu();
