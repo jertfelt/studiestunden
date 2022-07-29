@@ -44,7 +44,7 @@ const showDefaultMenu = () => {
 //*--------CHECK IF LOGGED IN------------------
 
 const checkinguserStatus = async () => {
-  const res = await fetch ("/api/loggedin");
+  const res = await fetch ("/users");
   const user = await res.json();
   console.log(user);
   if(user === "Unauthorized"){
@@ -57,14 +57,3 @@ const checkinguserStatus = async () => {
 
   checkinguserStatus();
   
-//! Earlier code from trying to use express session, do not use:
-// const showLoggedInMenu = async () => {
-//   if(sessionStorage.getItem('status') != null){
-//     showUserMenu();
-//   }
-//   else {
-//     showDefaultMenu();
-//   }
-// }
-
-// showLoggedInMenu();

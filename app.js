@@ -43,8 +43,6 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
 .catch((error) => console.log("-------ERROR CONNECTING " + error))
 
 
-
-
 //**-----------------ROUTES----------  */
 
 // //?-------HOMEPAGE(OLD)

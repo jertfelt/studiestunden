@@ -1,4 +1,19 @@
+CREATEUSER.EJS
 
+  <!-- <span class="row profilbildspan">
+          <label for="getFile"
+          >
+            Välj profilbild 
+          </label>
+          <button 
+          class="profilbildButt"
+          onclick="document.getElementById('getFile').click()">Ladda upp bild</button>
+          <input type='file' 
+          id="getFile" >
+        </span> -->
+
+
+APP.JS
 
 //***upload profile pic (in development)
 // const bodyParser = require("body-parser");

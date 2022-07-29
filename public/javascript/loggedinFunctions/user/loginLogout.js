@@ -5,10 +5,11 @@
   const loginEmail = document.getElementById("usernameLogin");
   const loginPassword = document.getElementById("passwordLogin");
 
-  createForm.addEventListener("submit", async (e) => {
+  console.log(document.getElementById("loginForm"))
+  loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const response = await fetch("/api/login", {
+    const response = await fetch("/login", {
       method: "POST",
       headers: {
         "content-type": "application/json"
