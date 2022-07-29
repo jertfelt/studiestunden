@@ -27,7 +27,7 @@ app.use((req, res, next) => {
   next();
 });
 
-//*---passwords*/
+//*---dotenv:
 const USER = process.env.DB_USER;
 const PASS = process.env.DB_PASSWORD;
 const port = process.env.PORT;
@@ -53,13 +53,44 @@ app.use(sessions({
   resave: false
 }))
 
+//username and password
+const myusername = 'user1'
+const mypassword = 'mypassword'
+
+// a variable to save a session
+let session;
+
 
 //**-----------------ROUTES----------  */
 
-//?-------HOMEPAGE
+// //?-------HOMEPAGE(OLD)
+// app.get('/', (req, res) => {
+//   res.render('index', { title: 'Studiestunden'});
+// });
+
+//?-------HOMEPAGE(NEW)
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Studiestunden'});
+  session=req.session;
+  if(session.userid){
+    res.send("Logga in!")
+  }else{
+    res.render('index', { title: 'Studiestunden'});
+  } 
 });
+
+// //?login form
+// app.post("/user", (req, res) => {
+//   if(req.body.username == myusername && req.body.password == mypassword){
+//     session = req.session;
+//     session.userid=req.body.username;
+//     console.log(req.session);
+//     res.send("Hej och välkommen")
+//   }
+//   else {
+//     res.send("Fel lösenord eller användarnamn, var vänlig försök igen")
+//   }
+// })
+
 
 
 app.post("/users", (req, res) => {  

@@ -10,9 +10,9 @@
   <section class="form__section">
     <div class="form__section--txt">
       <h2>Registrera dig här:</h2>
-      <form action="/users" 
-      method="POST"
-      class="form__register">
+      <form action="" 
+      class="form__register"
+      id="createUserForm">
         <span>
           <label for="name">
           Användarnamn:</label>
@@ -63,5 +63,32 @@
 </aside>
   <%- include("../partials/footer.ejs") %>
 </body>
+<script>
+
+  //assigning variables
+  const createForm = document.getElementById("createUserForm");
+  const createName = document.getElementById("name");
+  const createEmail = document.getElementById("email");
+  const createPassword = document.getElementById("password");
+
+  createForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const response = await fetch("/api/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        accountname: createName.value,
+        email: createEmail.value,
+        password: createPassword.value
+      })
+    })
+    const data = await response.json();
+    location.reload();
+  })
+
+</script>
 </html>
 </main>
