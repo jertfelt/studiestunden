@@ -1,11 +1,8 @@
-
-
   //assigning variables
   const loginForm = document.getElementById("loginForm");
   const loginEmail = document.getElementById("usernameLogin");
   const loginPassword = document.getElementById("passwordLogin");
 
-  console.log(document.getElementById("loginForm"))
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 

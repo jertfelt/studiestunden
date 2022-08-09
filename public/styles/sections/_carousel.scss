@@ -8,7 +8,9 @@
   padding:2rem;
 
   &__introtxt{
+    color: $color-grey;
     p {
+      
       width:50%;
       @include breakpoint(xxsmall-max){
        width:100%;
@@ -20,6 +22,7 @@
     h2 {
       font-family: $heading;
       font-size:32px;
+      color: $color-grey;
     }
     padding-bottom:2rem;
     @include breakpoint(xxsmall-max){
@@ -30,14 +33,15 @@
 }
 
 .mySlides{
+  color: $color-white;
   display:none;
   &__padding{
     margin:3rem;
     padding:0.2rem;
     padding-bottom:1rem;
     @include breakpoint(xxsmall-max){
-     padding:0;
-     margin:1rem;
+    padding:0;
+    margin:1rem;
     }
   }
  
@@ -45,7 +49,6 @@
 .numbertext {
   color: $color-grey;
   font-size: 12px;
-  padding: 8px 12px;
   position: absolute;
   top: 0;
   

@@ -1313,6 +1313,7 @@ button:focus, button:active {
 }
 
 .quotes__introtxt {
+  color: #e1dfd6;
   padding-bottom: 2rem;
 }
 
@@ -1333,6 +1334,7 @@ button:focus, button:active {
 .quotes__introtxt h2 {
   font-family: "Righteous", Arial, sans-serif;
   font-size: 32px;
+  color: #e1dfd6;
 }
 
 @media only screen and (max-width: 600px) {
@@ -1342,6 +1344,7 @@ button:focus, button:active {
 }
 
 .mySlides {
+  color: #fff;
   display: none;
 }
 
@@ -1361,7 +1364,6 @@ button:focus, button:active {
 .numbertext {
   color: #e1dfd6;
   font-size: 12px;
-  padding: 8px 12px;
   position: absolute;
   top: 0;
 }
