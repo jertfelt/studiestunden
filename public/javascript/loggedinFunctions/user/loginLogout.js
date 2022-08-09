@@ -1,0 +1,1 @@
+//! Tom js-fil pga bugg som vill läsa in loginLogout, spara tills buggen hittats. 9/8 2022

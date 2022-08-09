@@ -8,6 +8,8 @@ const mongoose = require("mongoose");
 const Users = require("./models/users");
 const morgan = require("morgan");
 const { response } = require('express');
+const bcrypt = require('bcrypt');
+const session = require("express-session");
 
 // register view engine
 app.set('view engine', 'ejs');
@@ -30,7 +32,18 @@ app.use((req, res, next) => {
 const USER = process.env.DB_USER;
 const PASS = process.env.DB_PASSWORD;
 const port = process.env.PORT;
-const SECRET = process.env.SECRET;
+
+//session cookie
+app.use(session({
+  resave: false, 
+  saveUninitialized: false, 
+  secret: "secret",
+  cookie: {
+    maxAge: 8*60*60*1000
+  }
+}));
+
+const saltRounds = 10;
 
 //**-------Mongoose connection:--------*/
 
@@ -51,14 +64,17 @@ app.get('/', (req, res) => {
 });
 
 
-app.post("/users", (req, res) => {  
+app.post("/users", async (req, res) => {
+  // const hash = await bcrypt.hash(req.body.pass, saltRounds);  
   // console.log(req.body)
   const user = new Users(req.body);
-  user.save()
+  await user.save()
   .then((result) => {
-    console.log("resultatet är här: " + result)
-    res.redirect("/");
-    sessionStorage.setItem('status','loggedIn') 
+    console.log("resultatet är här: " + result);
+    res.json({
+      success:true
+    })
+    res.redirect("/")
   })
   .catch((err) => {
     console.log(err)
