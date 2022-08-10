@@ -68,10 +68,6 @@
         password: loginPassword.value
       })
     })
-    .then(() => {
-        checkinguserStatus();
-      window.location.assign("../detaljer")
-    })
     .catch((error) => {
       alert("Fel lösenord eller användarnamn!")
       console.log(error);
