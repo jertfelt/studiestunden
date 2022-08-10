@@ -63,6 +63,10 @@ app.get('/', (req, res) => {
   res.render('index', { title: 'Studiestunden'});
 });
 
+app.get('/start', (req, res) => {
+  res.render('index', { title: 'Studiestunden'});
+});
+
 
 app.post("/users", async (req, res) => {
   // const hash = await bcrypt.hash(req.body.pass, saltRounds);  
@@ -74,7 +78,6 @@ app.post("/users", async (req, res) => {
     res.json({
       success:true
     })
-    res.redirect("/")
   })
   .catch((err) => {
     console.log(err)
