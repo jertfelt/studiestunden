@@ -4,11 +4,13 @@
 let notLoggedInOptions = document.querySelectorAll(".notloggedin");
 let loggedInOptions = document.querySelectorAll(".loggedin");
 
-//*logout function button
+
+
+    //*-------LOGOUT FUNCTION
 let logoutButtons = document.querySelectorAll(".logoutbutton");
 logoutButtons.forEach(element => {
   element.addEventListener("click", () => {
-    console.log("clicked")
+  sessionStorage.removeItem("loggedin", true);
   })
 });
 
@@ -20,7 +22,7 @@ const showUserMenu = () => {
   })
 
   notLoggedInOptions.forEach(element => {
-  if (element.classList.contains("hidden") != true){
+  if (element.classList.contains("hidden") !== true){
     element.classList.add("hidden")
   }
   })
@@ -29,6 +31,7 @@ const showUserMenu = () => {
 //?-------Not logged in menu:
 const showDefaultMenu = () => {
   notLoggedInOptions.forEach(element => {
+
     if (element.classList.contains("hidden")){
       element.classList.remove("hidden")
     }
@@ -56,6 +59,7 @@ if (data === "true") {
 else {
   console.log("not logged in")
   showDefaultMenu();
+
 }
 
   }
