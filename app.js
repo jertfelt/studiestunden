@@ -67,6 +67,15 @@ app.get('/start', (req, res) => {
   res.render('index', { title: 'Studiestunden'});
 });
 
+app.get("loggedin", (req, res) => {
+  console.log(req.session.user)
+  if(req.session.user){
+    res.json({ user: req.session.user});
+  }
+  else{
+    res.status(404).render("404", {title: "404"})
+  }
+})
 
 app.post("/users", async (req, res) => {
   // const hash = await bcrypt.hash(req.body.pass, saltRounds);  
@@ -75,15 +84,29 @@ app.post("/users", async (req, res) => {
   await user.save()
   .then((result) => {
     console.log("resultatet är här: " + result);
-    res.json({
-      success:true
-    })
   })
   .catch((err) => {
     console.log(err)
   })
+  res.json({
+    success_token: true,
+    user
+  })
 })
 
+app.post("/login", async (req, res) => {
+  const user = await Users.findOne({user: req.body.usernameLogin});
+  console.log(req.body);
+  if (!match){
+    res.status(401).json({error: "wrong password"})
+  }
+  else {
+    req.session.user = user;
+    res.json({
+      user: user.user
+    })
+  }
+})
 
 app.get("/medlem/:id", (req, res) => {
   const id = req.params.id;
@@ -92,6 +115,8 @@ app.get("/medlem/:id", (req, res) => {
     res.render("../views/userInterface/details", {user: result, title: "Din info"})
   }).catch(error => {
     console.log(error)
+    res.status(404)
+		res.send({ error: "Användaren finns inte!" })
   })
 
 })

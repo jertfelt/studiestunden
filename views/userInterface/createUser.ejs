@@ -61,7 +61,6 @@
     const createEmail = document.getElementById("email");
     const createPassword = document.getElementById("password");
 
-  
     createForm.addEventListener("submit", async (e) => {
       e.preventDefault();
   
@@ -77,13 +76,16 @@
         })
       })
       const data = await response.json();
-      //*ska bytas sedan när medlem/:id fungerar
+
+      sessionStorage.setItem("loggedin", true);
+    //*ska bytas sedan när medlem/:id fungerar
       window.location.href = "/start";
     })
     </script>
-</body>
-
+    
 <script src="../javascript/loggedinFunctions/user/ifLoggedin.js" type="module"> </script> 
+
+</body>
 
 </html>
 </main>
