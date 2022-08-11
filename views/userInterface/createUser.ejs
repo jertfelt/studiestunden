@@ -64,7 +64,7 @@
     createForm.addEventListener("submit", async (e) => {
       e.preventDefault();
   
-      const response = await fetch("/users", {
+      const response = await fetch("api/auth/register", {
         method: "POST",
         headers: {
           "content-type": "application/json"

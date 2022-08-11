@@ -6,10 +6,22 @@ const app = express();
 const _ = require("lodash");
 const mongoose = require("mongoose");
 const Users = require("./models/users");
-const morgan = require("morgan");
 const { response } = require('express');
 const bcrypt = require('bcrypt');
-const session = require("express-session");
+const path = require("path");
+const cors= require("cors");
+const cookieSession = require("cookie-session");
+
+let corsOptions = {
+  origin: "http://localhost:3000"
+}
+app.use(cors(corsOptions));
+
+//*---dotenv:
+const USER = process.env.DB_USER;
+const PASS = process.env.DB_PASSWORD;
+const port = process.env.PORT;
+const SECRET = process.env.SECRET;
 
 // register view engine
 app.set('view engine', 'ejs');
@@ -28,22 +40,13 @@ app.use((req, res, next) => {
   next();
 });
 
-//*---dotenv:
-const USER = process.env.DB_USER;
-const PASS = process.env.DB_PASSWORD;
-const port = process.env.PORT;
-
-//session cookie
-app.use(session({
-  resave: false, 
-  saveUninitialized: false, 
-  secret: "secret",
-  cookie: {
-    maxAge: 8*60*60*1000
-  }
-}));
-
-const saltRounds = 10;
+app.use(
+  cookieSession({
+    name: "cookie",
+    secret: SECRET,
+    httpOnly: true
+  })
+)
 
 //**-------Mongoose connection:--------*/
 
@@ -56,6 +59,14 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
 .catch((error) => console.log("-------ERROR CONNECTING " + error))
 
 
+
+// // routes
+// const authRoutes = require('./routes/auth.routes')
+// const userRoutes = require('./routes/user.routes')
+
+
+
+
 //**-----------------ROUTES----------  */
 
 // //?-------HOMEPAGE(OLD)
@@ -63,21 +74,24 @@ app.get('/', (req, res) => {
   res.render('index', { title: 'Studiestunden'});
 });
 
+//!temporary route to "start"
 app.get('/start', (req, res) => {
   res.render('index', { title: 'Studiestunden'});
 });
 
-app.get("loggedin", (req, res) => {
-  console.log(req.session.user)
-  if(req.session.user){
-    res.json({ user: req.session.user});
-  }
-  else{
-    res.status(404).render("404", {title: "404"})
-  }
+
+
+
+
+
+
+//?---------REGISTER
+app.get("/registrera", (req, res) => {
+  res.render("../views/userInterface/createUser",{ title: "Registrera dig!"})
 })
 
-app.post("/users", async (req, res) => {
+//*----Register functionality
+app.post("api/auth/register", async (req, res) => {
   // const hash = await bcrypt.hash(req.body.pass, saltRounds);  
   // console.log(req.body)
   const user = new Users(req.body);
@@ -94,6 +108,44 @@ app.post("/users", async (req, res) => {
   })
 })
 
+
+//?---------LOGIN
+app.get("/login", (req, res) => {
+  res.render("../views/userInterface/login.ejs",{ title: "Logga in"})
+})
+
+//*------Login functionality
+
+app.post("/api/auth/login", (req, res) => {
+  console.log(req.body);
+  let username = req.body.usernameLogin;
+  let password = req.body.passwordLogin;
+  if (username && password){
+
+  }
+})
+
+//Sign out
+app.post("/api/auth/signout", (req, res) => {})
+
+//access user content
+app.get("/api/user", (req, res) => {
+
+})
+
+//change user details
+app.post("/api/user", (req, res) => {
+
+})
+
+// edit/post taskboard
+app.post("/api/user/taskboard", (req, res) => {
+
+})
+
+//access taskboard
+app.get("/api/user/taskboard", (req, res) => {})
+
 app.post("/login", async (req, res) => {
   const user = await Users.findOne({user: req.body.usernameLogin});
   console.log(req.body);
@@ -107,26 +159,6 @@ app.post("/login", async (req, res) => {
     })
   }
 })
-
-app.get("/medlem/:id", (req, res) => {
-  const id = req.params.id;
-  Users.findById(id).then(result =>{
-    console.log(result)
-    res.render("../views/userInterface/details", {user: result, title: "Din info"})
-  }).catch(error => {
-    console.log(error)
-    res.status(404)
-		res.send({ error: "Användaren finns inte!" })
-  })
-
-})
-
-//?---------REGISTER
-app.get("/registrera", (req, res) => {
-  res.render("../views/userInterface/createUser",{ title: "Registrera dig!"})
-})
-
-
 
 //?---------LOGGED IN DETAILS
 app.get("/detaljer", (req, res) => {
@@ -142,15 +174,38 @@ app.get("/detaljer", (req, res) => {
   // })
 })
 
-//?---------LOGIN
-app.get("/login", (req, res) => {
-  res.render("../views/userInterface/login.ejs",{ title: "Logga in"})
+
+
+app.get("/medlem/:id", (req, res) => {
+  const id = req.params.id;
+  Users.findById(id).then(result =>{
+    console.log(result)
+    res.render("../views/userInterface/details", {user: result, title: "Din info"})
+  }).catch(error => {
+    console.log(error)
+    res.status(404)
+		res.send({ error: "Användaren finns inte!" })
+  })
+
 })
+
+
 
 //?---------LOGGED IN TASKBOARD
 app.get("/taskboard", (req, res) => {
   res.render("../views/taskboard/taskboard.ejs",{ title: "Din anslagstavla"})
 })
+
+
+// app.get("loggedin", (req, res) => {
+//   console.log(req.session.user)
+//   if(req.session.user){
+//     res.json({ user: req.session.user});
+//   }
+//   else{
+//     res.status(404).render("404", {title: "404"})
+//   }
+// })
 
 
 //?---------- 404 page
