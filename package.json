@@ -6,6 +6,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords":[
+    "node.js",
+    "express",
+    "login",
+    "jwt",
+    "registration",
+    "authentication",
+    "mongodb",
+    "mongoose",
+    "pomofocus",
+    "api",
+    "trelloboard",
+    "authorization",
+    "user"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jertfelt/studiestunden.git"
@@ -19,11 +34,15 @@
   "dependencies": {
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-session": "^1.17.3",
+    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "mongoose": "^6.5.2",
     "morgan": "^1.10.0",
