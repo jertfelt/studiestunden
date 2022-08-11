@@ -40,16 +40,14 @@ app.use((req, res, next) => {
 });
 
 
-//function that creates roles:
-
-
 //**-------Mongoose connection:--------*/
 
-const dbURI = "mongodb+srv://"+USER+":"+PASS+"@studiestunden.v4y2zyx.mongodb.net/?retryWrites=true&w=majority";
+const dbURI = "mongodb+srv://"+USER+":"+PASS+"@studiestunden.v4y2zyx.mongodb.net/studiestunden?retryWrites=true&w=majority";
 
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
 .then((result) => {app.listen(port)
   console.log(`connected to MongoDB, server is running on ${port}`)
+  //function that creates roles:
   const initial = () => {
     Role.estimatedDocumentCount((err, count) => {
       if (!err && count === 0){
@@ -85,7 +83,9 @@ app.get("/", (req,res) => {
   res.json({message: "Welcome to the world of tomorrow"})
 })
 
-
+//*-----------ROUTES
+const authRoute = require('./app/routes/auth.routes')(app);
+const userRoute = require("./app/routes/user.routes")(app);
 
 
 //?---------- 404 page
