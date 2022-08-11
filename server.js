@@ -1,16 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const cookieSession = require("cookie-session");
-const app = express();
 const mongoose = require("mongoose")
-const _ = require("lodash");
-const { initial } = require("lodash");
 const dotenv = require("dotenv").config();
 const corsOptions = {
   origin: "http://localhost:3000"
 };
-const db = require ("./app/models");
-const Role = db.role;
 
 //*---------DOTENV:
 const USER = process.env.DB_USER;
@@ -18,6 +13,8 @@ const PASS = process.env.DB_PASSWORD;
 const port = process.env.PORT;
 const SECRET = process.env.SECRET;
 
+const app = express();
+app.set('view engine', 'ejs');
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -28,9 +25,6 @@ app.use(
     httpOnly: true
   })
 )
-
-app.set('view engine', 'ejs');
-
 // public file
 app.use(express.static('public'));
 
@@ -40,7 +34,12 @@ app.use((req, res, next) => {
 });
 
 
+
+
+
 //**-------Mongoose connection:--------*/
+const db = require ("./app/models");
+const Role = db.role;
 
 const dbURI = "mongodb+srv://"+USER+":"+PASS+"@studiestunden.v4y2zyx.mongodb.net/studiestunden?retryWrites=true&w=majority";
 
@@ -78,14 +77,15 @@ process.exit();
 });
 
 
-
-app.get("/", (req,res) => {
-  res.json({message: "Welcome to the world of tomorrow"})
-})
+// //?-------HOMEPAGE(OLD)
+app.get('/', (req, res) => {
+  res.render('index', { title: 'Studiestunden'});
+});
 
 //*-----------ROUTES
-const authRoute = require('./app/routes/auth.routes')(app);
-const userRoute = require("./app/routes/user.routes")(app);
+//*! Av någon anledning fungerar inte nedan:
+require('./app/routes/auth.routes')(app);
+require("./app/routes/user.routes")(app);
 
 
 //?---------- 404 page
