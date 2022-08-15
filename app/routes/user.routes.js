@@ -9,7 +9,7 @@ module.exports = function(app) {
     );
     next();
   });
-  app.get("/api/all", controller.allAccess);
+  app.get("/", controller.allAccess);
   app.get("/api/user", [authJwt.verifyToken], controller.userBoard);
   app.get(
     "/api/admin",
@@ -17,3 +17,4 @@ module.exports = function(app) {
     controller.adminBoard
   );
 };
+

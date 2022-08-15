@@ -64,6 +64,8 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
 // const authRoutes = require('./routes/auth.routes')
 // const userRoutes = require('./routes/user.routes')
 
+const { authJwt } = require("../middlewares");
+const controller = require("../controllers/user.controller");
 
 
 
@@ -71,7 +73,10 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
 
 // //?-------HOMEPAGE(OLD)
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Studiestunden'});
+  res.setHeader("Access-Control-Allow-Headers",
+  "Origin, Content-Type, Accept",
+  )
+  res.render('index', { title: 'Studiestunden'}, controller.allAccess);
 });
 
 //!temporary route to "start"
@@ -82,7 +87,7 @@ app.get('/start', (req, res) => {
 
 //?---------LOGIN
 app.get("/login", (req, res) => {
-  res.render("../views/userInterface/login.ejs",{ title: "Logga in"})
+  res.render("../views/userInterface/login.ejs",{ title: "Logga in"}, controller.allAccess)
 })
 
 
