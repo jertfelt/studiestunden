@@ -9,7 +9,10 @@ module.exports = function(app) {
     );
     next();
   });
-  app.get("/", controller.allAccess);
+  app.get("/", controller.homepage);
+  app.get('/start', controller.allAccess);
+  app.get("/login", controller.login)
+  app.get("/registrera", controller.register)
   app.get("/api/user", [authJwt.verifyToken], controller.userBoard);
   app.get(
     "/api/admin",

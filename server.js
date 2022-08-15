@@ -75,27 +75,11 @@ process.exit();
 });
 
 
-// // //?-------HOMEPAGE(OLD)
-// app.get('/', (req, res) => {
-//   res.render('index', { title: 'Studiestunden'});
-// });
-
-
-
-
 
 // //*-----------ROUTES
 // //*! Av någon anledning fungerar inte nedan:
 require('./app/routes/auth.routes')(app);
 require("./app/routes/user.routes")(app);
-
-// //?-------HOMEPAGE(OLD)
-app.get('/', (req, res) => {
-  res.setHeader("Access-Control-Allow-Headers",
-  "Origin, Content-Type, Accept",
-  )
-  res.render('index', { title: 'Studiestunden'});
-});
 
 
 //?---------- 404 page
