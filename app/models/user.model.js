@@ -14,10 +14,10 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  roles: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Role"
-  }],
+  // roles: [{
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "Role"
+  // }],
   // img: {
   //   data: Buffer,
   //   contentType: String,
