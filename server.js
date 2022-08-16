@@ -48,16 +48,78 @@ process.exit();
 });
 
 // //*-----------ROUTES
-// require('./app/routes/auth.routes')(app);
+require('./app/routes/auth.routes')(app);
 require("./app/routes/user.routes")(app);
 
-//*-----------Post actions
 
+// const controller = require("./app/controllers/user.controller");
+// const { authJwt } = require("./app/middlewares");
+// const { verifySignUp } = require("./app/middlewares");
 
-
+// app.post("/users", (req, res) => {
+//   res.setHeader("Access-Control-Allow-Headers",
+//   "Origin, Content-Type, Accept",
+//   )
+//   verifySignUp.checkDuplicateUsernameOrEmail,
+//   controller.signup,
+//   controller.signin
+//   res.render("../views/userInterface/details",{ title: "Din profil"})
+// })
 
 //?---------- 404 page
 app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
 });
 
+
+
+
+//*-----------Post actions
+
+// const controller = require("./app/controllers/auth.controller");
+// const database = require("./app/models");
+// const User = database.user;
+
+// const checkDuplicateUser = (req, res, next) => {
+//   User.findOne({
+//     username: req.body.username
+//   }).exec((err, user) => {
+//     if(err){
+//       res.status(500)
+//       console.log(err)
+//       return;
+//     }
+//     if(user){
+//       res.status(400)
+//       console.log("Användarnamnet finns redan!");
+//       return;
+//     }
+//     User.findOne({
+//       email: req.body.email
+//     }).exec((err, user)=> {
+//       if(err){
+//         res.status(500).send({ message: err });
+//         return;
+//       }
+//       if(user){
+//         res.status(400).send({ message: "Emailadressen finns redan!" });
+//         return;
+//       }
+//       next();
+//   })
+// })}
+
+
+// app.post("/users", async (req, res, next) => {
+//   const user = new User(req.body);
+//   checkDuplicateUser();
+//   await user.save()
+//   .then((result) => {
+//     console.log("resultatet är här: " + result);
+//   })
+  
+//   res.header( "Access-Control-Allow-Headers",
+//   "Origin, Content-Type, Accept")
+//   controller.signup
+//   controller.signin
+// })

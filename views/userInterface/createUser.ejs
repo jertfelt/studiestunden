@@ -71,18 +71,18 @@
     createForm.addEventListener("submit", async (e) => {
       e.preventDefault();
   
-      // const response = await fetch("/users", {
-      //   method: "POST",
-      //   headers: {
-      //     "content-type": "application/json"
-      //   },
-      //   body: JSON.stringify({
-      //     username: createName.value,
-      //     email: createEmail.value,
-      //     password: createPassword.value
-      //   })
-      // })
-      // const data = await response.json();
+      const response = await fetch("/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify({
+          username: createName.value,
+          email: createEmail.value,
+          password: createPassword.value
+        })
+      })
+      const data = await response.json();
       // const confirmationmessage = document.createElement("div");
       // confirmationmessage.classList.add("form__section--msg")
       // confirmationmessage.innerHTML=`
