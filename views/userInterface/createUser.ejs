@@ -9,7 +9,7 @@
 
   <section class="form__section">
     <div class="form__section--txt">
-      <h2>Registrera dig här:</h2>
+      <h2 id="createUserHeading">Registrera dig här:</h2>
       <form action="/users" 
       method="POST"
       class="form__register"
@@ -45,6 +45,9 @@
           Bli medlem</button>
         
       </form>
+      <div id="msgCreateForm">
+      
+      </div>
       
     </div>
   </section>
@@ -62,6 +65,8 @@
     const createEmail = document.getElementById("email");
     const createPassword = document.getElementById("password");
 
+    const msgCreateForm = document.getElementById("msgCreateForm");
+
     createForm.addEventListener("submit", async (e) => {
       e.preventDefault();
   
@@ -77,10 +82,16 @@
         })
       })
       const data = await response.json();
+      const confirmationmessage = document.createElement("h1");
+      confirmationmessage.classList.add("form__section--msg")
+      confirmationmessage.innerText="Välkommen!"
+      msgCreateForm.appendChild(confirmationmessage)
+      createForm.classList.add("hidden");
+      document.getElementById("createUserHeading").classList.add("hidden");
 
       sessionStorage.setItem("loggedin", true);
     //*ska bytas sedan när medlem/:id fungerar
-      window.location.href = "/start";
+      // window.location.href = "/start";
     })
     </script>
     
