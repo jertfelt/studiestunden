@@ -15,8 +15,9 @@ const userSchema = new Schema({
     required: true
   },
   //*profilepic (later use)
-  // img: {
-  //   type: File,
+ // img: {
+  //   data: Buffer,
+  //   contentType: String,
   // },
 }, 
 {timestamps: true}

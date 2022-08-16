@@ -80,4 +80,71 @@ let session;
 
 
 
+  //function that creates roles: (server.js in mongoose connection function)
+  // const initial = () => {
+  //   Role.estimatedDocumentCount((err, count) => {
+  //     if (!err && count === 0){
+  //       new Role({
+  //         name: "user"
+  //       }).save(err => {
+  //         if (err){
+  //           console.log("ERROR", err);
+  //         }
+  //         console.log("Added 'user' to roles")
+  //       })
+  //       new Role({
+  //         name: "admin"
+  //       }).save(err => {
+  //         if(err) {
+  //           console.log("ERROR", err)
+  //         }
+  //         console.log("Added 'Admin'");
+  //       })
+  //     }
+  //   })
+  // }
+  // initial();
+
+
   
+// isAdmin = (req, res, next) => {
+//   User.findById(req.userId).exec((err, user) => {
+//     if (err) {
+//       res.status(500).send({ message: err });
+//       return;
+//     }
+//     Role.find(
+//       {
+//         _id: { $in: user.roles },
+//       },
+//       (err, roles) => {
+//         if (err) {
+//           res.status(500).send({ message: err });
+//           return;
+//         }
+//         for (let i = 0; i < roles.length; i++) {
+//           if (roles[i].name === "admin") {
+//             next();
+//             return;
+//           }
+//         }
+//         res.status(403).send({ message: "Require Admin Role!" });
+//         return;
+//       }
+//     );
+//   });
+// };
+
+
+   // var authorities = [];
+      // for (let i = 0; i < user.roles.length; i++) {
+      //   authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
+      // }
+
+
+      
+  // app.get(
+  //   "/admin",
+  //   [authJwt.verifyToken, authJwt.isAdmin],
+  //   controller.adminBoard
+  // );

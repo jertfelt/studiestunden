@@ -14,6 +14,7 @@
       method="POST"
       class="form__register"
       id="createUserForm">
+      
         <span>
           <label for="name">
           Användarnamn:</label>
@@ -65,33 +66,36 @@
     const createEmail = document.getElementById("email");
     const createPassword = document.getElementById("password");
 
-    const msgCreateForm = document.getElementById("msgCreateForm");
+    // const msgCreateForm = document.getElementById("msgCreateForm");
 
     createForm.addEventListener("submit", async (e) => {
       e.preventDefault();
   
-      const response = await fetch("/users", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json"
-        },
-        body: JSON.stringify({
-          username: createName.value,
-          email: createEmail.value,
-          password: createPassword.value
-        })
-      })
-      const data = await response.json();
-      const confirmationmessage = document.createElement("h1");
-      confirmationmessage.classList.add("form__section--msg")
-      confirmationmessage.innerText="Välkommen!"
-      msgCreateForm.appendChild(confirmationmessage)
-      createForm.classList.add("hidden");
-      document.getElementById("createUserHeading").classList.add("hidden");
+      // const response = await fetch("/users", {
+      //   method: "POST",
+      //   headers: {
+      //     "content-type": "application/json"
+      //   },
+      //   body: JSON.stringify({
+      //     username: createName.value,
+      //     email: createEmail.value,
+      //     password: createPassword.value
+      //   })
+      // })
+      // const data = await response.json();
+      // const confirmationmessage = document.createElement("div");
+      // confirmationmessage.classList.add("form__section--msg")
+      // confirmationmessage.innerHTML=`
+      // <h2>Välkommen!</h2>
+      // <h3>Gå till din sida</h3>
+      // `
+      // msgCreateForm.appendChild(confirmationmessage)
+      // createForm.classList.add("hidden");
+      // document.getElementById("createUserHeading").classList.add("hidden");
 
       sessionStorage.setItem("loggedin", true);
     //*ska bytas sedan när medlem/:id fungerar
-      // window.location.href = "/start";
+      window.location.href = "/profil";
     })
     </script>
     

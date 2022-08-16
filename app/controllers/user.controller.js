@@ -17,6 +17,11 @@ exports.userBoard = (req, res) => {
   res.status(200).send("User Content.");
 };
 
+exports.profil = (req, res) => {
+  res.status(200).render("../views/userInterface/details",{ title: "Din profil"})
+};
+
 exports.taskBoard = (req, res) => {
   res.status(200).send("Task Content.");
 };
+

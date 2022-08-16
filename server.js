@@ -19,6 +19,7 @@ app.set('view engine', 'ejs');
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+
 app.use(
   cookieSession({
     name: "cookie",
@@ -36,38 +37,11 @@ app.use(express.static('public'));
 
 
 //**-------Mongoose connection:--------*/
-const db = require ("./app/models");
-const Role = db.role;
-
 const dbURI = "mongodb+srv://"+USER+":"+PASS+"@studiestunden.v4y2zyx.mongodb.net/studiestunden?retryWrites=true&w=majority";
 
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
 .then((result) => {app.listen(port)
   console.log(`connected to MongoDB, server is running on ${port}`)
-  //function that creates roles:
-  const initial = () => {
-    Role.estimatedDocumentCount((err, count) => {
-      if (!err && count === 0){
-        new Role({
-          name: "user"
-        }).save(err => {
-          if (err){
-            console.log("ERROR", err);
-          }
-          console.log("Added 'user' to roles")
-        })
-        new Role({
-          name: "admin"
-        }).save(err => {
-          if(err) {
-            console.log("ERROR", err)
-          }
-          console.log("Added 'Admin'");
-        })
-      }
-    })
-  }
-  initial();
 }
 )
 .catch(error => {console.log("-------ERROR CONNECTING " + error)
@@ -77,7 +51,6 @@ process.exit();
 
 
 // //*-----------ROUTES
-// //*! Av någon anledning fungerar inte nedan:
 require('./app/routes/auth.routes')(app);
 require("./app/routes/user.routes")(app);
 

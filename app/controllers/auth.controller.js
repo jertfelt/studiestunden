@@ -10,6 +10,7 @@ exports.signup = (req, res) => {
     username: req.body.username,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 12),
+    // img: req.body.img
   });
   user.save((err, user) => {
     if (err) {
