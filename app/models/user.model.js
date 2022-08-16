@@ -14,13 +14,9 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  // roles: [{
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: "Role"
-  // }],
+  //*profilepic (later use)
   // img: {
-  //   data: Buffer,
-  //   contentType: String,
+  //   type: File,
   // },
 }, 
 {timestamps: true}

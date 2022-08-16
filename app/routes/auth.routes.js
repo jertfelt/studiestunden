@@ -9,14 +9,15 @@ module.exports = function(app) {
     );
     next();
   });
+  
   app.post(
-    "/users",
+    "/users", 
     [
       verifySignUp.checkDuplicateUsernameOrEmail,
-      // verifySignUp.checkRolesExisted
+
     ],
     controller.signup
-  );
+  )
   app.post("/users/login", controller.signin);
   app.post("/users/signout", controller.signout);
 };
