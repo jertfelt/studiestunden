@@ -1,6 +1,7 @@
 exports.allAccess = (req, res) => {
   res.status(200).render("index", { title: 'Studiestunden'})
 };
+
 exports.homepage = (req, res) => {
   res.status(200).render("index", { title: 'Studiestunden'})
 }

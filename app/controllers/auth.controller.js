@@ -1,7 +1,6 @@
 const config = require("../config/auth.config");
 const db = require("../models");
 const User = db.user;
-// const Role = db.role;
 let jwt = require("jsonwebtoken");
 let bcrypt = require("bcryptjs");
 
@@ -17,6 +16,7 @@ exports.signup = (req, res) => {
       res.status(500).send({ message: err });
       return;
     }
+    res.send({ message: "User was registered successfully!" })
   });
 }
 
@@ -43,10 +43,7 @@ exports.signin = (req, res) => {
       var token = jwt.sign({ id: user.id }, config.secret, {
         expiresIn: 86400, // 24 hours
       });
-      // var authorities = [];
-      // for (let i = 0; i < user.roles.length; i++) {
-      //   authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
-      // }
+   
       req.session.token = token;
       res.status(200).send({
         id: user._id,

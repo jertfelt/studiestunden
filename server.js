@@ -35,7 +35,6 @@ app.use((req, res, next) => {
 // public file
 app.use(express.static('public'));
 
-
 //**-------Mongoose connection:--------*/
 const dbURI = "mongodb+srv://"+USER+":"+PASS+"@studiestunden.v4y2zyx.mongodb.net/studiestunden?retryWrites=true&w=majority";
 
@@ -48,11 +47,13 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedToPology: true})
 process.exit();
 });
 
-
-
 // //*-----------ROUTES
-require('./app/routes/auth.routes')(app);
+// require('./app/routes/auth.routes')(app);
 require("./app/routes/user.routes")(app);
+
+//*-----------Post actions
+
+
 
 
 //?---------- 404 page
